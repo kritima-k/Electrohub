@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElectroHub | Smartphones</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/smartphones.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+    <i class="bi bi-cpu-fill"></i> ElectroHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link"  href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('product') }}">Products</a></li>
+                <li class="nav-item"><a class="nav-link"  href="{{ url_for('categories') }}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('smartphones') }}">Smartphones</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('cart') }}">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-chip reveal"><i class="bi bi-phone-fill"></i> Smartphones Collection</div>
+        <h1 class="reveal">Find Your Perfect <span>Smartphone</span></h1>
+        <p class="reveal">Apple, Samsung, OnePlus, Xiaomi and more — explore flagship and budget smartphones all in one place.</p>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section style="padding-bottom:40px;">
+    <div class="container">
+
+        <div class="filter-bar reveal">
+            <div class="d-flex flex-wrap gap-2">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="flagship">Flagship</button>
+                <button class="filter-pill" data-filter="midrange">Mid Range</button>
+                <button class="filter-pill" data-filter="budget">Budget</button>
+                <button class="filter-pill" data-filter="5g">5G</button>
+            </div>
+            <select class="sort-select" id="sortSelect">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+        </div>
+
+        <div class="row g-4" id="phoneGrid">
+
+            <!-- 1 iPhone -->
+            <div class="col-md-6 col-lg-4 col-xl-3 phone-item reveal" data-filter="flagship" data-name="Apple iPhone 15 Pro" data-price="134999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-8%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80" alt="iPhone 15 Pro">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Apple</div>
+                        <h5 class="product-name">Apple iPhone 15 Pro</h5>
+                        <div class="rating">★★★★★ <small>(892)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹1,34,999</div>
+                            <div class="old-price">₹1,49,999</div>
+                        </div>
+                        <p class="product-desc">A17 Pro chip, 48MP camera, titanium build — Apple's finest.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="s1" data-name="Apple iPhone 15 Pro" data-price="134999" data-image="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 Samsung S24 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 phone-item reveal" data-filter="flagship" data-name="Samsung Galaxy S24 Ultra" data-price="124999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-10%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80" alt="Samsung S24">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Samsung</div>
+                        <h5 class="product-name">Samsung Galaxy S24 Ultra</h5>
+                        <div class="rating">★★★★★ <small>(654)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹1,24,999</div>
+                            <div class="old-price">₹1,39,999</div>
+                        </div>
+                        <p class="product-desc">200MP camera, S Pen, Snapdragon 8 Gen 3 — Android king.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="s2" data-name="Samsung Galaxy S24 Ultra" data-price="124999" data-image="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 OnePlus -->
+            <div class="col-md-6 col-lg-4 col-xl-3 phone-item reveal" data-filter="flagship" data-name="OnePlus 12 5G" data-price="64999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-12%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80" alt="OnePlus 12">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">OnePlus</div>
+                        <h5 class="product-name">OnePlus 12 5G</h5>
+                        <div class="rating">★★★★★ <small>(478)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹64,999</div>
+                            <div class="old-price">₹73,999</div>
+                        </div>
+                        <p class="product-desc">Snapdragon 8 Gen 3, Hasselblad camera, 100W charging.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="s3" data-name="OnePlus 12 5G" data-price="64999" data-image="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Pixel -->
+            <div class="col-md-6 col-lg-4 col-xl-3 phone-item reveal" data-filter="5g" data-name="Google Pixel 8 Pro" data-price="84999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-16%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80" alt="Pixel 8">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Google</div>
+                        <h5 class="product-name">Google Pixel 8 Pro</h5>
+                        <div class="rating">★★★★★ <small>(312)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹84,999</div>
+                            <div class="old-price">₹99,999</div>
+                        </div>
+                        <p class="product-desc">Google Tensor G3, best-in-class AI camera, pure Android.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="s4" data-name="Google Pixel 8 Pro" data-price="84999" data-image="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Xiaomi -->
+            <div class="col-md-6 col-lg-4 col-xl-3 phone-item reveal" data-filter="midrange" data-name="Xiaomi 13 Pro" data-price="44999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-18%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=900&q=80" alt="Xiaomi">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Xiaomi</div>
+                        <h5 class="product-name">Xiaomi 13 Pro</h5>
+                        <div class="rating">★★★★☆ <small>(389)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹44,999</div>
+                            <div class="old-price">₹54,999</div>
+                        </div>
+                        <p class="product-desc">Leica cameras, 120W HyperCharge, premium AMOLED display.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="s5" data-name="Xiaomi 13 Pro" data-price="44999" data-image="https://images.unsplash.com/photo-1585060544812-6b45742d762f?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 Realme -->
+            <div class="col-md-6 col-lg-4 col-xl-3 phone-item reveal" data-filter="budget" data-name="Realme Narzo 60" data-price="14999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-22%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80" alt="Realme">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Realme</div>
+                        <h5 class="product-name">Realme Narzo 60</h5>
+                        <div class="rating">★★★★☆ <small>(521)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹14,999</div>
+                            <div class="old-price">₹18,999</div>
+                        </div>
+                        <p class="product-desc">90Hz display, 5000mAh battery, 67W fast charging.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="s6" data-name="Realme Narzo 60" data-price="14999" data-image="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 Samsung A54 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 phone-item reveal" data-filter="midrange" data-name="Samsung Galaxy A54 5G" data-price="34999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-14%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80" alt="Samsung A54">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Samsung</div>
+                        <h5 class="product-name">Samsung Galaxy A54 5G</h5>
+                        <div class="rating">★★★★☆ <small>(432)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹34,999</div>
+                            <div class="old-price">₹40,999</div>
+                        </div>
+                        <p class="product-desc">50MP OIS camera, 120Hz Super AMOLED, 5000mAh battery.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="s7" data-name="Samsung Galaxy A54 5G" data-price="34999" data-image="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 Redmi -->
+            <div class="col-md-6 col-lg-4 col-xl-3 phone-item reveal" data-filter="budget" data-name="Redmi Note 13 Pro" data-price="19999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-20%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80" alt="Redmi">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Redmi</div>
+                        <h5 class="product-name">Redmi Note 13 Pro</h5>
+                        <div class="rating">★★★★☆ <small>(677)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹19,999</div>
+                            <div class="old-price">₹24,999</div>
+                        </div>
+                        <p class="product-desc">200MP camera, 67W turbo charging, curved AMOLED screen.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="s8" data-name="Redmi Note 13 Pro" data-price="19999" data-image="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VIEW MODAL -->
+<div id="viewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.82); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#111827; border:1px solid rgba(0,200,255,.18); border-radius:24px; max-width:680px; width:100%; max-height:90vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,.08); border:none; color:#fff; width:34px; height:34px; border-radius:50%; font-size:1.1rem; cursor:pointer;">✕</button>
+        <img id="modalImg" src="" style="width:100%; height:280px; object-fit:cover; border-radius:24px 24px 0 0;">
+        <div style="padding:26px;">
+            <div id="modalBrand" style="color:#00c8ff; font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;"></div>
+            <h3 id="modalTitle" style="color:#fff; font-size:1.4rem; font-weight:800; margin-bottom:8px;"></h3>
+            <div id="modalRating" style="color:#fbbf24; margin-bottom:10px;"></div>
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+                <div id="modalNewPrice" style="font-size:1.3rem; font-weight:800; color:#fff;"></div>
+                <div id="modalOldPrice" style="font-size:0.95rem; color:#475569; text-decoration:line-through;"></div>
+            </div>
+            <p id="modalDesc" style="color:#94a3b8; line-height:1.8; margin-bottom:22px;"></p>
+            <button onclick="addToCartFromModal()" style="width:100%; background:linear-gradient(135deg,#00c8ff,#2563eb); border:none; color:#fff; border-radius:14px; padding:14px; font-size:1rem; font-weight:700; cursor:pointer;">
+                <i class="bi bi-cart-plus-fill"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="footer-brand">ElectroHub</div>
+                <p class="footer-text">Your destination for premium electronics, gadgets and modern tech.</p>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6 class="footer-heading">Quick Links</h6>
+                <a  href="{{ url_for('home') }}"class="footer-link">Home</a>
+                <a  href="{{ url_for('product') }}"class="footer-link">Products</a>
+                <a  href="{{ url_for('categories') }}" class="footer-link">Categories</a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="footer-heading">Categories</h6>
+                <a  href="{{ url_for('laptops') }}" class="footer-link">Laptops</a>
+                <a href="{{ url_for('smartphones') }}"class="footer-link">Smartphones</a>
+                <a href="{{ url_for('gaming') }}" class="footer-link">Gaming</a>
+            </div>
+            <div class="col-lg-3">
+                <h6 class="footer-heading">Support</h6>
+                <a href="{{ url_for('contact') }}"class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">Returns</a>
+                <a href="#" class="footer-link">Help Center</a>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            © 2026 ElectroHub. Designed & Developed by <span style="color:#00c8ff; font-weight:600;">Kritima</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+// ======================= ADD TO CART =======================
+
+async function addToCart(product){
+
+    try{
+
+        const response = await fetch("/add_to_cart",{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(product)
+        });
+
+        const data = await response.json();
+
+        if(data.status==="login"){
+
+            alert("Please login first!");
+            window.location.href="{{ url_for('login') }}";
+            return;
+
+        }
+
+        if(data.status==="success"){
+
+            alert(product.name + " added to cart!");
+
+        }
+
+    }
+
+    catch(error){
+
+        console.error(error);
+        alert("Unable to add product to cart.");
+
+    }
+
+}
+
+
+// ======================= ADD TO CART BUTTON =======================
+
+document.querySelectorAll(".add-to-cart").forEach(btn=>{
+
+    btn.addEventListener("click",function(){
+
+        addToCart({
+
+            id:this.dataset.id,
+            name:this.dataset.name,
+            price:parseInt(this.dataset.price),
+            image:this.dataset.image
+
+        });
+
+    });
+
+});
+
+
+// ======================= FILTER =======================
+
+document.querySelectorAll(".filter-pill").forEach(btn=>{
+
+    btn.addEventListener("click",function(){
+
+        document.querySelectorAll(".filter-pill").forEach(b=>{
+
+            b.classList.remove("active");
+
+        });
+
+        this.classList.add("active");
+
+        const filter=this.dataset.filter;
+
+        document.querySelectorAll(".phone-item").forEach(item=>{
+
+            if(filter==="all" || item.dataset.filter===filter){
+
+                item.style.display="block";
+
+            }
+
+            else{
+
+                item.style.display="none";
+
+            }
+
+        });
+
+    });
+
+});
+
+
+// ======================= SORT =======================
+
+document.getElementById("sortSelect").addEventListener("change",function(){
+
+    const grid=document.getElementById("phoneGrid");
+
+    const cards=Array.from(grid.querySelectorAll(".phone-item"));
+
+    if(this.value==="low"){
+
+        cards.sort((a,b)=>Number(a.dataset.price)-Number(b.dataset.price));
+
+    }
+
+    else if(this.value==="high"){
+
+        cards.sort((a,b)=>Number(b.dataset.price)-Number(a.dataset.price));
+
+    }
+
+    else if(this.value==="name"){
+
+        cards.sort((a,b)=>a.dataset.name.localeCompare(b.dataset.name));
+
+    }
+
+    cards.forEach(card=>{
+
+        grid.appendChild(card);
+
+    });
+
+});
+
+// ================= MODAL =================
+
+let currentModalProduct = null;
+
+function openModal(btn){
+
+    const card = btn.closest(".product-card");
+    const cartBtn = card.querySelector(".add-to-cart");
+
+    currentModalProduct = {
+        id: cartBtn.dataset.id,
+        name: cartBtn.dataset.name,
+        price: parseInt(cartBtn.dataset.price),
+        image: cartBtn.dataset.image
+    };
+
+    document.getElementById("modalImg").src = card.querySelector("img").src;
+    document.getElementById("modalBrand").textContent = card.querySelector(".product-brand").textContent;
+    document.getElementById("modalTitle").textContent = card.querySelector(".product-name").textContent;
+    document.getElementById("modalRating").innerHTML = card.querySelector(".rating").innerHTML;
+    document.getElementById("modalNewPrice").textContent = card.querySelector(".new-price").textContent;
+    document.getElementById("modalOldPrice").textContent = card.querySelector(".old-price").textContent;
+    document.getElementById("modalDesc").textContent = card.querySelector(".product-desc").textContent;
+
+    document.getElementById("viewModal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("viewModal").style.display = "none";
+}
+
+function addToCartFromModal(){
+
+    if(currentModalProduct){
+        addToCart(currentModalProduct);
+    }
+
+}
+
+document.getElementById("viewModal").addEventListener("click",function(e){
+
+    if(e.target===this){
+        closeModal();
+    }
+
+});
+
+
+// ================= WISHLIST =================
+
+document.querySelectorAll(".wishlist-btn").forEach(btn=>{
+
+    btn.addEventListener("click",async function(){
+
+        const card=this.closest(".product-card");
+
+        const cartBtn=card.querySelector(".add-to-cart");
+
+        const item={
+
+            id:cartBtn.dataset.id,
+            name:cartBtn.dataset.name,
+            price:parseInt(cartBtn.dataset.price),
+            image:cartBtn.dataset.image
+
+        };
+
+        try{
+
+            const response=await fetch("/add_to_wishlist",{
+
+                method:"POST",
+
+                headers:{
+                    "Content-Type":"application/json"
+                },
+
+                body:JSON.stringify(item)
+
+            });
+
+            const data=await response.json();
+
+            if(data.status==="login"){
+
+                alert("Please login first!");
+
+                window.location.href="{{ url_for('login') }}";
+
+                return;
+
+            }
+
+            if(data.status==="exists"){
+
+                alert("Already in Wishlist!");
+
+                return;
+
+            }
+
+            if(data.status==="success"){
+
+                this.querySelector("i").classList.replace("bi-heart","bi-heart-fill");
+
+                this.style.color="#ff6b81";
+
+                alert(item.name + " added to Wishlist!");
+
+            }
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            alert("Unable to add to wishlist.");
+
+        }
+
+    });
+
+});
+
+
+// ================= REVEAL ANIMATION =================
+
+const reveals=document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+    reveals.forEach(el=>{
+
+        if(el.getBoundingClientRect().top < window.innerHeight-80){
+
+            el.classList.add("show");
+
+        }
+
+    });
+
+}
+
+revealOnScroll();
+
+window.addEventListener("scroll",revealOnScroll);
+
+
+</script>
+</body>
+</html>

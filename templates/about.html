@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElectroHub | About Us</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}" >
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+     <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+            <i class="bi bi-cpu-fill"></i> ElectroHub
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('product') }}">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('categories') }}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('deals') }}">Deals</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('about') }}">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="about-hero">
+    <div class="container">
+        <div class="hero-chip reveal">
+            <i class="bi bi-info-circle-fill"></i> About ElectroHub
+        </div>
+        <h1 class="reveal">
+            We Bring You the <span>Best in Tech</span><br>At Prices That Make Sense
+        </h1>
+        <p class="reveal">
+            ElectroHub is your one-stop destination for premium electronics, gaming gear, smart devices and everyday tech accessories — curated with quality and trust in mind.
+        </p>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-6 col-lg-3 reveal">
+                <div class="stat-card">
+                    <div class="stat-num">500+</div>
+                    <div class="stat-label">Products Listed</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3 reveal">
+                <div class="stat-card">
+                    <div class="stat-num">8+</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3 reveal">
+                <div class="stat-card">
+                    <div class="stat-num">10K+</div>
+                    <div class="stat-label">Happy Customers</div>
+                </div>
+            </div>
+            <div class="col-6 col-lg-3 reveal">
+                <div class="stat-card">
+                    <div class="stat-num">100%</div>
+                    <div class="stat-label">Secure Checkout</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6 reveal">
+                <div class="section-chip">Our Story</div>
+                <h2 class="section-title">Why <span>ElectroHub</span> Was Built</h2>
+                <p class="section-text">
+                    ElectroHub started with a simple idea — making premium technology accessible to everyone. We noticed that finding genuine, quality electronics at fair prices was always a challenge. So we built a platform that solves exactly that.
+                </p>
+                <p class="section-text">
+                    From gaming laptops and smartphones to earbuds, smartwatches and accessories — every product on ElectroHub is handpicked to ensure you get real value for your money.
+                </p>
+                <p class="section-text">
+                    We believe great technology should not be a luxury. It should be available to students, professionals, gamers and everyday users alike — and that is exactly what ElectroHub delivers.
+                </p>
+            </div>
+            <div class="col-lg-6 reveal">
+                <div class="story-img-box">
+                    <i class="bi bi-cpu-fill"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- PROJECT HIGHLIGHTS -->
+
+<section class="mission-section">
+    <div class="container">
+
+        <div class="text-center mb-5 reveal">
+            <div class="section-chip">
+                Project Features
+            </div>
+
+            <h2 class="section-title">
+                Project <span>Highlights</span>
+            </h2>
+
+            <p class="section-text">
+                ElectroHub combines modern frontend design with backend functionality to provide a complete e-commerce learning project.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-window"></i>
+                    </div>
+
+                    <h5>Responsive Interface</h5>
+
+                    <p>
+                        Designed using Bootstrap to provide a clean, responsive and user-friendly experience across desktop, tablet and mobile devices.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-person-check-fill"></i>
+                    </div>
+
+                    <h5>User Authentication</h5>
+
+                    <p>
+                        New users can register and existing users can securely log in through Flask and MySQL based authentication.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-cart-check-fill"></i>
+                    </div>
+
+                    <h5>Shopping Cart</h5>
+
+                    <p>
+                        Users can browse products, add items to their cart and manage selected products before checkout.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-grid-3x3-gap-fill"></i>
+                    </div>
+
+                    <h5>Category Navigation</h5>
+
+                    <p>
+                        Products are organized into multiple categories, making it easier for users to find gadgets quickly.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                 <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-database-fill"></i>
+                    </div>
+                    <h5>Database Integration</h5>
+
+                    <p>
+                        MySQL is used to store user registration details while Flask manages communication between the website and the database.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4 reveal">
+                <div class="mission-card">
+
+                    <div class="mission-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+
+                    <h5>Full-Stack Development</h5>
+
+                    <p>
+                        The project combines HTML, CSS, Bootstrap, JavaScript, Python Flask and MySQL to demonstrate complete web application development.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+<!-- CATEGORIES -->
+
+<section class="categories-section">
+    <div class="container">
+
+        <div class="text-center mb-5 reveal">
+            <div class="section-chip">
+                Product Collection
+            </div>
+
+            <h2 class="section-title">
+                Product <span>Categories</span>
+            </h2>
+
+            <p class="section-text">
+                ElectroHub offers a wide range of electronic products organized into different categories for easy browsing.
+            </p>
+        </div>
+
+        <div class="row g-3">
+
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <i class="bi bi-phone-fill"></i>
+                    </div>
+                    <div class="cat-name">Smartphones</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <i class="bi bi-laptop-fill"></i>
+                    </div>
+                    <div class="cat-name">Laptops</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <i class="bi bi-headphones"></i>
+                    </div>
+                    <div class="cat-name">Audio</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <i class="bi bi-smartwatch"></i>
+                    </div>
+                    <div class="cat-name">Smart Watches</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <i class="bi bi-controller"></i>
+                    </div>
+                    <div class="cat-name">Gaming</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <i class="bi bi-tablet-fill"></i>
+                    </div>
+                    <div class="cat-name">Tablets</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <i class="bi bi-plugin"></i>
+                    </div>
+                    <div class="cat-name">Accessories</div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-4 col-lg-3 reveal">
+                <div class="cat-card">
+                    <div class="cat-icon">
+                        <i class="bi bi-speaker-fill"></i>
+                    </div>
+                    <div class="cat-name">Speakers</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- TECHNOLOGIES -->
+
+<section class="values-section">
+
+<div class="container">
+
+<div class="row align-items-center g-5">
+
+<div class="col-lg-5 reveal">
+
+
+
+
+
+
+<div class="section-chip">
+Technologies Used
+</div>
+
+<h2 class="section-title">
+Built With <span>Modern Technologies</span>
+</h2>
+
+<p style="color:var(--muted); line-height:1.9;">
+
+ElectroHub combines frontend technologies, backend development and database connectivity to build a complete full-stack web application.
+
+</p>
+
+</div>
+
+<div class="col-lg-7">
+
+<div class="value-item reveal">
+
+<div class="value-num">
+01
+</div>
+
+<div class="value-content">
+
+<h6>HTML5</h6>
+
+<p>
+Provides the structure and layout for all webpages.
+</p>
+
+</div>
+
+</div>
+
+<div class="value-item reveal">
+
+<div class="value-num">
+02
+</div>
+
+<div class="value-content">
+
+<h6>CSS3 & Bootstrap</h6>
+
+<p>
+Used to create a responsive, attractive and mobile-friendly user interface.
+</p>
+
+</div>
+
+</div>
+
+<div class="value-item reveal">
+
+<div class="value-num">
+03
+</div>
+
+<div class="value-content">
+
+<h6>JavaScript</h6>
+
+<p>
+Adds interactivity including cart operations, page animations and dynamic user interactions.
+</p>
+
+</div>
+
+</div>
+
+<div class="value-item reveal">
+
+<div class="value-num">
+04
+</div>
+
+<div class="value-content">
+
+<h6>Python Flask</h6>
+
+<p>
+Handles routing, backend logic, authentication and communication with the MySQL database.
+</p>
+
+</div>
+
+</div>
+
+<div class="value-item reveal">
+
+<div class="value-num">
+05
+</div>
+
+<div class="value-content">
+
+<h6>MySQL</h6>
+
+<p>
+Stores user registration details and supports login authentication through database connectivity.
+</p>
+
+</div>
+
+</div>
+
+<div class="value-item reveal">
+
+<div class="value-num">
+06
+</div>
+
+<div class="value-content">
+
+<h6>Full-Stack Development</h6>
+
+<p>
+Integrates frontend, backend and database technologies into a complete e-commerce web application.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- DEVELOPER -->
+
+<section class="dev-section">
+
+<div class="container">
+
+<div class="text-center mb-5 reveal">
+
+<div class="section-chip">
+Developer
+</div>
+
+<h2 class="section-title">
+About the <span>Project</span>
+</h2>
+
+</div>
+
+<div class="reveal">
+
+<div class="dev-card">
+
+<div class="dev-avatar">
+K
+</div>
+
+<div class="dev-name">
+Kritima
+</div>
+
+<div class="dev-role">
+BCA Student | PGGC-11 Chandigarh
+</div>
+
+<p class="dev-bio">
+
+ElectroHub was developed as part of internship training to demonstrate full-stack web development concepts. The project combines HTML, CSS, Bootstrap, JavaScript, Python Flask and MySQL to create a functional e-commerce website with user authentication, database connectivity and a responsive user interface.
+
+</p>
+
+<div class="dev-tags">
+
+<span class="dev-tag">HTML5</span>
+
+<span class="dev-tag">CSS3</span>
+
+<span class="dev-tag">Bootstrap</span>
+
+<span class="dev-tag">JavaScript</span>
+
+<span class="dev-tag">Python</span>
+
+<span class="dev-tag">Flask</span>
+
+<span class="dev-tag">MySQL</span>
+
+<span class="dev-tag">Responsive Design</span>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA --><!-- CTA -->
+
+<section class="cta-section">
+
+    <div class="container">
+
+        <div class="cta-box reveal">
+
+            <h2>
+                Explore <span>ElectroHub</span>
+            </h2>
+
+            <p>
+                Discover our collection of electronics, gadgets and accessories while experiencing a modern full-stack e-commerce application.
+            </p>
+<a href="{{ url_for('product') }}" class="cta-btn">
+                <i class="bi bi-bag-fill"></i>
+                Explore Products
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-4">
+
+                <div class="footer-brand">
+                    ElectroHub
+                </div>
+
+                <p class="footer-text">
+                    ElectroHub is a full-stack e-commerce project developed using HTML, CSS, Bootstrap, JavaScript, Python Flask and MySQL as part of academic internship training.
+                </p>
+
+            </div>
+
+            <div class="col-6 col-lg-2">
+
+                <h6 class="footer-heading">
+                    Quick Links
+                </h6>
+<a href="{{ url_for('home') }}" class="footer-link">Home</a>
+<a href="{{ url_for('product') }}" class="footer-link">Products</a>
+<a href="{{ url_for('categories') }}" class="footer-link">Categories</a>
+<a href="{{ url_for('about') }}" class="footer-link">About</a>
+
+            </div>
+
+            <div class="col-6 col-lg-3">
+
+                <h6 class="footer-heading">
+                    Technologies
+                </h6>
+
+                <a href="#" class="footer-link">HTML5</a>
+                <a href="#" class="footer-link">CSS3 & Bootstrap</a>
+                <a href="#" class="footer-link">JavaScript</a>
+                <a href="#" class="footer-link">Flask & MySQL</a>
+
+            </div>
+
+            <div class="col-lg-3">
+
+                <h6 class="footer-heading">
+                    Project
+                </h6>
+<a href="{{ url_for('contact') }}" class="footer-link">Contact</a>
+<a href="{{ url_for('login') }}" class="footer-link">Login</a>
+<a href="{{ url_for('signup') }}" class="footer-link">Sign Up</a>
+<a href="{{ url_for('cart') }}" class="footer-link">Shopping Cart</a>
+
+            </div>
+
+        </div>
+
+        <div class="footer-bottom text-center">
+
+            © 2026 ElectroHub | Academic Internship Project
+
+            <br>
+
+            Designed & Developed by
+            <span style="color:#00c8ff;font-weight:600;">
+                Kritima
+            </span>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Scroll Animation -->
+
+<script>
+
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+    reveals.forEach((element)=>{
+
+        const top = element.getBoundingClientRect().top;
+
+        if(top < window.innerHeight - 80){
+
+            element.classList.add("show");
+
+        }
+
+    });
+
+}
+
+revealOnScroll();
+
+window.addEventListener("scroll", revealOnScroll);
+
+</script>
+
+</body>
+</html>

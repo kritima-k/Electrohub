@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElectroHub | Accessories</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/accessories.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+            <i class="bi bi-cpu-fill"></i> ElectroHub
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('product') }}">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('categories') }}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('accessories') }}">Accessories</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('cart') }}">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="accessories-hero">
+    <div class="container">
+        <div class="hero-chip reveal">
+            <i class="bi bi-headset"></i> Accessories Collection
+        </div>
+        <h1 class="reveal">Upgrade Your <span>Accessories</span></h1>
+        <p class="reveal">Explore chargers, mouse, webcams, keyboards, speakers, headphones and essential gadgets for everyday use.</p>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section style="padding-bottom:40px;">
+    <div class="container">
+
+        <!-- FILTER BAR -->
+        <div class="filter-bar reveal">
+            <div class="d-flex flex-wrap gap-2">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="charger">Chargers</button>
+                <button class="filter-pill" data-filter="mouse">Mouse</button>
+                <button class="filter-pill" data-filter="webcam">Webcams</button>
+                <button class="filter-pill" data-filter="audio">Audio</button>
+            </div>
+            <select class="sort-select" id="sortSelect">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+        </div>
+
+        <!-- GRID -->
+        <div class="row g-4" id="accessoryGrid">
+
+            <!-- 1 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 accessory-item reveal" data-filter="charger" data-name="Fast Charger 65W" data-price="2499">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-18%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80" alt="Fast Charger">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Anker</div>
+                        <h5 class="product-name">Fast Charger 65W</h5>
+                        <div class="rating">★★★★★ <small>(148)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹2,499</div>
+                            <div class="old-price">₹2,999</div>
+                        </div>
+                        <p class="product-desc">Compact Type-C fast charger with safe charging and high power output.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="a1" data-name="Fast Charger 65W" data-price="2499"
+                                data-image="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 accessory-item reveal" data-filter="mouse" data-name="Wireless Mouse Pro" data-price="1599">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-15%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=900&q=80" alt="Wireless Mouse">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Logitech</div>
+                        <h5 class="product-name">Wireless Mouse Pro</h5>
+                        <div class="rating">★★★★☆ <small>(232)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹1,599</div>
+                            <div class="old-price">₹1,899</div>
+                        </div>
+                        <p class="product-desc">Smooth wireless performance with ergonomic design and long battery life.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="a2" data-name="Wireless Mouse Pro" data-price="1599"
+                                data-image="https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 accessory-item reveal" data-filter="webcam" data-name="HD Webcam 1080p" data-price="3299">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-12%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1623949556303-b0d17d198863?auto=format&fit=crop&w=900&q=80" alt="Webcam">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">HP</div>
+                        <h5 class="product-name">HD Webcam 1080p</h5>
+                        <div class="rating">★★★★★ <small>(117)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹3,299</div>
+                            <div class="old-price">₹3,799</div>
+                        </div>
+                        <p class="product-desc">Clear 1080p video quality with built-in mic for online classes and meetings.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="a3" data-name="HD Webcam 1080p" data-price="3299"
+                                data-image="https://images.unsplash.com/photo-1623949556303-b0d17d198863?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 accessory-item reveal" data-filter="audio" data-name="Bluetooth Headphones" data-price="4499">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-20%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Headphones">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">boAt</div>
+                        <h5 class="product-name">Bluetooth Headphones</h5>
+                        <div class="rating">★★★★☆ <small>(286)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹4,499</div>
+                            <div class="old-price">₹5,599</div>
+                        </div>
+                        <p class="product-desc">Deep bass, wireless freedom and comfortable cushions for long listening sessions.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="a4" data-name="Bluetooth Headphones" data-price="4499"
+                                data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 accessory-item reveal" data-filter="audio" data-name="Mini Bluetooth Speaker" data-price="2799">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-14%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80" alt="Speaker">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">JBL</div>
+                        <h5 class="product-name">Mini Bluetooth Speaker</h5>
+                        <div class="rating">★★★★★ <small>(192)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹2,799</div>
+                            <div class="old-price">₹3,299</div>
+                        </div>
+                        <p class="product-desc">Portable speaker with rich sound, wireless connectivity and stylish design.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="a5" data-name="Mini Bluetooth Speaker" data-price="2799"
+                                data-image="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 accessory-item reveal" data-filter="charger" data-name="10000mAh Power Bank" data-price="1999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-16%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://plus.unsplash.com/premium_photo-1776277143718-917ebe093a00?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHBvd2VyYmFuayUyMGltYWdlfGVufDB8fDB8fHww" alt="Power Bank">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Mi</div>
+                        <h5 class="product-name">10000mAh Power Bank</h5>
+                        <div class="rating">★★★★☆ <small>(341)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹1,999</div>
+                            <div class="old-price">₹2,399</div>
+                        </div>
+                        <p class="product-desc">Reliable backup power with dual output ports and sleek portable design.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="a6" data-name="10000mAh Power Bank" data-price="1999"
+                                data-image="https://images.unsplash.com/photo-1609592425407-5f0bdfd33a4d?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 accessory-item reveal" data-filter="mouse" data-name="Gaming RGB Mouse" data-price="2199">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-19%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=900&q=80" alt="Gaming Mouse">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Redragon</div>
+                        <h5 class="product-name">Gaming RGB Mouse</h5>
+                        <div class="rating">★★★★★ <small>(159)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹2,199</div>
+                            <div class="old-price">₹2,699</div>
+                        </div>
+                        <p class="product-desc">RGB lighting, adjustable DPI and ergonomic design for gaming and work.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="a7" data-name="Gaming RGB Mouse" data-price="2199"
+                                data-image="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 accessory-item reveal" data-filter="webcam" data-name="USB Conference Webcam" data-price="3999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-10%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1626581806599-d12b0bbd4225?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHVzYiUyMGNvbmZlcmFuY2UlMjB3ZWJjYW1zfGVufDB8fDB8fHww" alt="Conference Webcam">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Logitech</div>
+                        <h5 class="product-name">USB Conference Webcam</h5>
+                        <div class="rating">★★★★☆ <small>(126)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹3,999</div>
+                            <div class="old-price">₹4,499</div>
+                        </div>
+                        <p class="product-desc">Sharp video capture and plug-and-play setup for meetings, streaming and classes.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="a8" data-name="USB Conference Webcam" data-price="3999"
+                                data-image="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VIEW MODAL -->
+<div id="viewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.82); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#111827; border:1px solid rgba(0,200,255,.18); border-radius:24px; max-width:680px; width:100%; max-height:90vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,.08); border:none; color:#fff; width:34px; height:34px; border-radius:50%; font-size:1.1rem; cursor:pointer;">✕</button>
+        <img id="modalImg" src="" style="width:100%; height:280px; object-fit:cover; border-radius:24px 24px 0 0;">
+        <div style="padding:26px;">
+            <div id="modalBrand" style="color:#00c8ff; font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;"></div>
+            <h3 id="modalTitle" style="color:#fff; font-size:1.4rem; font-weight:800; margin-bottom:8px;"></h3>
+            <div id="modalRating" style="color:#fbbf24; margin-bottom:10px;"></div>
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+                <div id="modalNewPrice" style="font-size:1.3rem; font-weight:800; color:#fff;"></div>
+                <div id="modalOldPrice" style="font-size:0.95rem; color:#475569; text-decoration:line-through;"></div>
+            </div>
+            <p id="modalDesc" style="color:#94a3b8; line-height:1.8; margin-bottom:22px;"></p>
+            <button onclick="addToCartFromModal()" style="width:100%; background:linear-gradient(135deg,#00c8ff,#2563eb); border:none; color:#fff; border-radius:14px; padding:14px; font-size:1rem; font-weight:700; cursor:pointer;">
+                <i class="bi bi-cart-plus-fill"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="footer-brand">ElectroHub</div>
+                <p class="footer-text">Your destination for premium electronics, gadgets and modern tech.</p>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6 class="footer-heading">Quick Links</h6>
+               <a href="{{ url_for('home') }}" class="footer-link">Home</a>
+                <a href="{{ url_for('product') }}" class="footer-link">Products</a>
+               <a href="{{ url_for('categories') }}" class="footer-link">Categories</a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="footer-heading">Categories</h6>
+                <a href="{{ url_for('laptops') }}" class="footer-link">Laptops</a>
+               <a href="{{ url_for('smartphones') }}" class="footer-link">Smartphones</a>
+                <a href="{{ url_for('accessories') }}" class="footer-link">Accessories</a>
+            </div>
+            <div class="col-lg-3">
+                <h6 class="footer-heading">Support</h6>
+               <a href="{{ url_for('contact') }}" class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">Returns</a>
+                <a href="#" class="footer-link">Help Center</a>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            © 2026 ElectroHub. Designed & Developed by <span style="color:#00c8ff; font-weight:600;">Kritima</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function addToCart(product){
+
+    fetch("/add_to_cart", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(product)
+    })
+    .then(response => response.json())
+    .then(data => {
+
+        if(data.status === "login"){
+            alert("Please login first!");
+            window.location.href = "/login";
+        }
+        else if(data.status === "success"){
+            alert(product.name + " added to cart!");
+        }
+        else{
+            alert(data.message);
+        }
+
+    });
+
+}
+
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+    btn.addEventListener("click", function(){
+        addToCart({
+            id: this.dataset.id,
+            name: this.dataset.name,
+            price: parseInt(this.dataset.price),
+            image: this.dataset.image
+        });
+    });
+});
+
+// FILTER
+document.querySelectorAll(".filter-pill").forEach(btn => {
+    btn.addEventListener("click", function(){
+        document.querySelectorAll(".filter-pill").forEach(b => b.classList.remove("active"));
+        this.classList.add("active");
+        const f = this.dataset.filter;
+        document.querySelectorAll(".accessory-item").forEach(item => {
+            item.style.display = (f === "all" || item.dataset.filter === f) ? "block" : "none";
+        });
+    });
+});
+
+// SORT
+document.getElementById("sortSelect").addEventListener("change", function(){
+    const grid = document.getElementById("accessoryGrid");
+    const cards = Array.from(grid.querySelectorAll(".accessory-item"));
+    if(this.value === "low") cards.sort((a,b) => a.dataset.price - b.dataset.price);
+    else if(this.value === "high") cards.sort((a,b) => b.dataset.price - a.dataset.price);
+    else if(this.value === "name") cards.sort((a,b) => a.dataset.name.localeCompare(b.dataset.name));
+    cards.forEach(c => grid.appendChild(c));
+});
+
+// VIEW MODAL
+let currentModalProduct = null;
+
+function openModal(btn){
+    const card = btn.closest(".product-card");
+    const cartBtn = card.querySelector(".add-to-cart");
+    currentModalProduct = {
+        id: cartBtn.dataset.id,
+        name: cartBtn.dataset.name,
+        price: parseInt(cartBtn.dataset.price),
+        image: cartBtn.dataset.image
+    };
+    document.getElementById("modalImg").src = card.querySelector("img").src;
+    document.getElementById("modalBrand").textContent = card.querySelector(".product-brand").textContent;
+    document.getElementById("modalTitle").textContent = card.querySelector(".product-name").textContent;
+    document.getElementById("modalRating").innerHTML = card.querySelector(".rating").innerHTML;
+    document.getElementById("modalNewPrice").textContent = card.querySelector(".new-price").textContent;
+    document.getElementById("modalOldPrice").textContent = card.querySelector(".old-price").textContent;
+    document.getElementById("modalDesc").textContent = card.querySelector(".product-desc").textContent;
+    const modal = document.getElementById("viewModal");
+    modal.style.display = "flex";
+}
+function closeModal(){ document.getElementById("viewModal").style.display = "none"; }
+function addToCartFromModal(){ if(currentModalProduct) addToCart(currentModalProduct); }
+document.getElementById("viewModal").addEventListener("click", function(e){ if(e.target===this) closeModal(); });
+
+// WISHLIST
+document.querySelectorAll(".wishlist-btn").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        const card = this.closest(".product-card");
+        const cartBtn = card.querySelector(".add-to-cart");
+
+        fetch("/add_to_wishlist",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+
+                id:cartBtn.dataset.id,
+                name:cartBtn.dataset.name,
+                price:cartBtn.dataset.price,
+                image:cartBtn.dataset.image
+
+            })
+
+        })
+
+        .then(response=>response.json())
+
+        .then(data=>{
+
+            if(data.status=="login"){
+
+                alert("Please login first!");
+                window.location.href="/login";
+
+            }
+
+            else if(data.status=="success"){
+
+                btn.querySelector("i").classList.replace("bi-heart","bi-heart-fill");
+                btn.style.color="#ff6b81";
+
+                alert("Added to Wishlist!");
+
+            }
+
+            else{
+
+                alert(data.message);
+
+            }
+
+        });
+
+    });
+
+});
+// REVEAL
+const reveals = document.querySelectorAll(".reveal");
+function revealOnScroll(){
+    reveals.forEach(el => {
+        if(el.getBoundingClientRect().top < window.innerHeight - 80) el.classList.add("show");
+    });
+}
+revealOnScroll();
+window.addEventListener("scroll", revealOnScroll);
+</script>
+
+</body>
+</html>

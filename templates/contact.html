@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ElectroHub | Contact Us</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/contact.css') }}">
+
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+
+      <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+            <i class="bi bi-cpu-fill"></i> ElectroHub
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#menu">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('home') }}">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('product') }}">Products</a>
+                </li>
+
+                <li class="nav-item">
+                 <a class="nav-link" href="{{ url_for('categories') }}">Categories</a>
+                </li>
+
+                <li class="nav-item">
+                   <a class="nav-link" href="{{ url_for('about') }}">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ url_for('contact') }}">Contact</a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+
+<section class="contact-header">
+
+    <div class="container text-center">
+
+        <div class="hero-chip reveal">
+            <i class="bi bi-headset"></i>
+            24/7 Customer Support
+        </div>
+
+        <h1 class="reveal">
+            We're Always Ready <span>To Help</span>
+        </h1>
+
+        <p class="reveal">
+            Whether you have questions about products, orders,
+            delivery, payments or warranty, our support team is
+            available to assist you.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- ================= SUPPORT SECTION ================= -->
+
+<section class="support-section">
+
+<div class="container">
+
+<div class="row g-4">
+
+<!-- LEFT SIDE -->
+
+<div class="col-lg-6 reveal">
+
+<div class="support-panel">
+
+<div class="support-title">
+
+<span>
+<i class="bi bi-shield-check"></i>
+Customer Support
+</span>
+
+<h2>Need Assistance?</h2>
+
+<p>
+
+ElectroHub provides quick support for shopping,
+payments, warranty claims, returns and product
+information.
+
+</p>
+
+</div>
+
+<div class="support-card">
+
+<div class="icon-box">
+<i class="bi bi-telephone-fill"></i>
+</div>
+
+<div>
+
+<h5>Customer Care</h5>
+
+<p>+91 98765 43210</p>
+
+<small>Monday - Saturday | 10 AM - 7 PM</small>
+
+</div>
+
+</div>
+
+<div class="support-card">
+
+<div class="icon-box">
+<i class="bi bi-envelope-fill"></i>
+</div>
+
+<div>
+
+<h5>Email Support</h5>
+
+<p>support@electrohub.com</p>
+
+<small>Response within 24 Hours</small>
+
+</div>
+
+</div>
+
+<div class="support-card">
+
+<div class="icon-box">
+<i class="bi bi-chat-dots-fill"></i>
+</div>
+
+<div>
+
+<h5>Live Chat</h5>
+
+<p>Available 24×7</p>
+
+<small>Average Reply Time : 5 Minutes</small>
+
+</div>
+
+</div>
+
+<div class="support-card">
+
+<div class="icon-box">
+<i class="bi bi-geo-alt-fill"></i>
+</div>
+
+<div>
+
+<h5>Office Address</h5>
+
+<p>Sector 17, Chandigarh</p>
+
+<small>Serving Customers Across India</small>
+
+</div>
+
+</div>
+
+<div class="support-card">
+
+    <div class="icon-box">
+        <i class="bi bi-box-seam-fill"></i>
+    </div>
+
+    <div>
+
+        <h5>Track Your Order</h5>
+
+        <p>Real-Time Order Tracking</p>
+
+        <small>Monitor your shipment anytime after login.</small>
+
+    </div>
+
+</div>
+
+<div class="support-card">
+
+    <div class="icon-box">
+        <i class="bi bi-arrow-repeat"></i>
+    </div>
+
+    <div>
+
+        <h5>Returns & Refunds</h5>
+
+        <p>Easy 7-Day Return Policy</p>
+
+        <small>Simple return process with quick refunds.</small>
+
+    </div>
+
+</div>
+
+<div class="support-card">
+
+    <div class="icon-box">
+        <i class="bi bi-award-fill"></i>
+    </div>
+
+    <div>
+
+        <h5>Warranty Support</h5>
+
+        <p>Official Manufacturer Warranty</p>
+
+        <small>Claim warranty for eligible products.</small>
+
+    </div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FAQ -->
+
+<div class="col-lg-6 reveal">
+
+<div class="faq-panel">
+
+<h3>
+<i class="bi bi-patch-question-fill"></i>
+Frequently Asked Questions
+</h3>
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+
+How do I track my order?
+
+<i class="bi bi-chevron-down"></i>
+
+</div>
+
+<div class="faq-answer">
+
+After placing your order, you will receive a confirmation with a tracking ID. Use it after logging in to monitor your delivery.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+
+What is your return policy?
+
+<i class="bi bi-chevron-down"></i>
+
+</div>
+
+<div class="faq-answer">
+
+Products can be returned within 7 days if they meet our return policy conditions.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+
+Are all products genuine?
+
+<i class="bi bi-chevron-down"></i>
+
+</div>
+
+<div class="faq-answer">
+
+Yes. Every product sold on ElectroHub is sourced from verified brands and comes with an official warranty.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+
+Which payment methods are accepted?
+
+<i class="bi bi-chevron-down"></i>
+
+</div>
+
+<div class="faq-answer">
+
+We accept UPI, Credit Cards, Debit Cards, Net Banking and Cash on Delivery where available.
+
+</div>
+
+</div>
+
+<div class="faq-item">
+
+<div class="faq-question" onclick="toggleFaq(this)">
+
+How long does delivery take?
+
+<i class="bi bi-chevron-down"></i>
+
+</div>
+
+<div class="faq-answer">
+
+Most orders are delivered within 3–5 business days. Express delivery is available in selected locations.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer class="site-footer">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<h3 class="footer-logo">ElectroHub</h3>
+
+<p>
+
+Your trusted destination for premium electronics,
+smart gadgets, gaming accessories and modern technology.
+
+</p>
+
+</div>
+
+<div class="col-lg-4">
+
+<h5>Quick Links</h5>
+
+<a href="{{ url_for('home') }}">Home</a>
+<a href="{{ url_for('product') }}">Products</a>
+<a href="{{ url_for('categories') }}">Categories</a>
+<a href="{{ url_for('about') }}">About</a>
+
+</div>
+
+<div class="col-lg-4">
+
+<h5>Support</h5>
+
+<a href="#">Shipping Policy</a>
+<a href="#">Returns</a>
+<a href="#">Warranty</a>
+<a href="{{ url_for('contact') }}">Contact</a>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="copyright">
+
+© 2026 ElectroHub. Designed & Developed by
+<span>Kritima</span>
+
+</p>
+
+</div>
+
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+
+function toggleFaq(element){
+
+const item = element.parentElement;
+
+document.querySelectorAll(".faq-item").forEach(faq=>{
+
+if(faq!==item){
+faq.classList.remove("active");
+}
+
+});
+
+item.classList.toggle("active");
+
+}
+
+const reveal=document.querySelectorAll(".reveal");
+
+function showReveal(){
+
+reveal.forEach(el=>{
+
+const top=el.getBoundingClientRect().top;
+
+if(top<window.innerHeight-100){
+
+el.classList.add("show");
+
+}
+
+});
+
+}
+
+window.addEventListener("scroll",showReveal);
+
+showReveal();
+
+</script>
+
+</body>
+</html>

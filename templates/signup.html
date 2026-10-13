@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroHub Signup</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+</head>
+<body>
+
+    <div class="signup-container">
+        <div class="signup-box">
+            <h2>Create Account</h2>
+            <p>Join ElectroHub and start shopping</p>
+
+          <form id="signupForm" action="/signup" method="POST">          
+<input type="text" id="name" name="name" placeholder="Full Name" required>
+<input type="email" id="email" name="email" placeholder="Email Address" required>
+<input type="password" id="password" name="password" placeholder="Password" required>
+<input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                <button type="submit">Sign Up</button>
+            </form>
+
+            <p class="login-link">
+                Already have an account?  <a href="{{ url_for('login') }}">Login</a>
+            </p>
+        </div>
+    </div>
+<script>
+document.getElementById("signupForm").addEventListener("submit", function(e){
+
+    const password = document.getElementById("password").value;
+    const confirmPassword = document.getElementById("confirmPassword").value;
+
+    if(password !== confirmPassword){
+        e.preventDefault();
+        alert("Passwords do not match!");
+        return;
+    }
+
+    if(password.length < 6){
+        e.preventDefault();
+        alert("Password must be at least 6 characters!");
+        return;
+    }
+
+});
+</script>
+
+        
+
+</body>
+</html>

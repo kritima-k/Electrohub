@@ -1,0 +1,613 @@
+/* ===========================
+   GOOGLE FONT
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+
+    background:#09111f;
+    color:#fff;
+    overflow-x:hidden;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+    width:10px;
+}
+
+::-webkit-scrollbar-track{
+    background:#0d1628;
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#00bfff;
+    border-radius:20px;
+
+}
+
+/* ===========================
+NAVBAR
+=========================== */
+
+.navbar{
+
+    background:#08111f;
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.navbar-brand{
+
+    font-size:30px;
+    color:#00c8ff !important;
+
+}
+
+.nav-link{
+
+    color:#d8d8d8 !important;
+    margin-left:15px;
+    transition:.3s;
+
+}
+
+.nav-link:hover{
+
+    color:#00c8ff !important;
+
+}
+
+.nav-link.active{
+
+    color:#00c8ff !important;
+
+}
+
+/* ===========================
+HEADER
+=========================== */
+
+.contact-header{
+
+    padding:100px 0 80px;
+
+    background:
+
+    linear-gradient(rgba(7,14,25,.90),rgba(7,14,25,.90)),
+
+    url("https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+.hero-chip{
+
+    display:inline-block;
+    padding:10px 22px;
+    border-radius:50px;
+
+    background:rgba(0,191,255,.15);
+
+    border:1px solid rgba(0,191,255,.3);
+
+    color:#00c8ff;
+
+    margin-bottom:25px;
+
+}
+
+.contact-header h1{
+
+    font-size:58px;
+    font-weight:700;
+    margin-bottom:20px;
+
+}
+
+.contact-header span{
+
+    color:#00c8ff;
+
+}
+
+.contact-header p{
+
+    color:#c7d0dd;
+    max-width:700px;
+    margin:auto;
+    line-height:1.8;
+
+}
+
+/* ===========================
+SECTION
+=========================== */
+
+.support-section{
+
+    padding:80px 0;
+
+}
+
+/* ===========================
+LEFT PANEL
+=========================== */
+
+.support-panel{
+
+    background:#10192d;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    height:100%;
+
+}
+
+.support-title span{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:30px;
+
+    background:#00bfff;
+
+    color:#08111f;
+
+    font-weight:600;
+
+    margin-bottom:18px;
+
+}
+
+.support-title h2{
+
+    margin-bottom:15px;
+
+    font-weight:700;
+
+}
+
+.support-title p{
+
+    color:#c5d2df;
+
+    line-height:1.8;
+
+    margin-bottom:35px;
+
+}
+
+/* ===========================
+SUPPORT CARD
+=========================== */
+
+.support-card{
+
+    display:flex;
+
+    gap:18px;
+
+    align-items:center;
+
+    padding:18px;
+
+    background:#17233b;
+
+    border-radius:16px;
+
+    margin-bottom:20px;
+
+    transition:.35s;
+
+    border:1px solid transparent;
+
+}
+
+.support-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#00bfff;
+
+    box-shadow:0 0 25px rgba(0,191,255,.25);
+
+}
+
+.icon-box{
+
+    width:65px;
+
+    height:65px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:linear-gradient(135deg,#00c8ff,#0078ff);
+
+    font-size:28px;
+
+    color:#fff;
+
+    flex-shrink:0;
+
+}
+
+.support-card h5{
+
+    margin-bottom:6px;
+
+}
+
+.support-card p{
+
+    color:#00c8ff;
+
+    margin-bottom:4px;
+
+    font-weight:600;
+
+}
+
+.support-card small{
+
+    color:#bcc6d4;
+
+}
+/* ===========================
+FAQ PANEL
+=========================== */
+
+.faq-panel{
+
+    background:#10192d;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    height:100%;
+
+}
+
+.faq-panel h3{
+
+    margin-bottom:30px;
+
+    font-weight:700;
+
+}
+
+.faq-panel h3 i{
+
+    color:#00c8ff;
+
+    margin-right:10px;
+
+}
+
+.faq-item{
+
+    margin-bottom:18px;
+
+    background:#17233b;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    border:1px solid rgba(255,255,255,.05);
+
+    transition:.3s;
+
+}
+
+.faq-item.active{
+
+    border-color:#00c8ff;
+
+}
+
+.faq-question{
+
+    padding:18px 22px;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.faq-question:hover{
+
+    color:#00c8ff;
+
+}
+
+.faq-question i{
+
+    transition:.3s;
+
+}
+
+.faq-item.active .faq-question i{
+
+    transform:rotate(180deg);
+
+}
+
+.faq-answer{
+
+    max-height:0;
+
+    overflow:hidden;
+
+    color:#c5d2df;
+
+    line-height:1.8;
+
+    padding:0 22px;
+
+    transition:.35s;
+
+}
+
+.faq-item.active .faq-answer{
+
+    max-height:200px;
+
+    padding:0 22px 20px;
+
+}
+
+/* ===========================
+FOOTER
+=========================== */
+
+.site-footer{
+
+    background:#08111f;
+
+    padding:70px 0 20px;
+
+    margin-top:70px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+.footer-logo{
+
+    color:#00c8ff;
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+}
+
+.site-footer p{
+
+    color:#b8c5d4;
+
+    line-height:1.8;
+
+}
+
+.site-footer h5{
+
+    margin-bottom:20px;
+
+}
+
+.site-footer a{
+
+    display:block;
+
+    color:#b8c5d4;
+
+    text-decoration:none;
+
+    margin-bottom:10px;
+
+    transition:.3s;
+
+}
+
+.site-footer a:hover{
+
+    color:#00c8ff;
+
+    padding-left:8px;
+
+}
+
+.site-footer hr{
+
+    border-color:rgba(255,255,255,.08);
+
+    margin:40px 0 20px;
+
+}
+
+.copyright{
+
+    text-align:center;
+
+    color:#9fb2c8;
+
+}
+
+.copyright span{
+
+    color:#00c8ff;
+
+    font-weight:600;
+
+}
+
+/* ===========================
+REVEAL ANIMATION
+=========================== */
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(40px);
+
+    transition:all .8s ease;
+
+}
+
+.reveal.show{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:991px){
+
+.contact-header{
+
+    padding:80px 20px;
+
+}
+
+.contact-header h1{
+
+    font-size:42px;
+
+}
+
+.support-panel,
+.faq-panel{
+
+    margin-bottom:30px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.navbar-brand{
+
+    font-size:24px;
+
+}
+
+.contact-header h1{
+
+    font-size:34px;
+
+}
+
+.contact-header p{
+
+    font-size:15px;
+
+}
+
+.support-panel,
+.faq-panel{
+
+    padding:25px;
+
+}
+
+.support-card{
+
+    flex-direction:column;
+
+    text-align:center;
+
+}
+
+.icon-box{
+
+    margin-bottom:10px;
+
+}
+
+.support-title h2{
+
+    font-size:28px;
+
+}
+
+}
+
+@media(max-width:576px){
+
+.hero-chip{
+
+    font-size:13px;
+
+}
+
+.contact-header h1{
+
+    font-size:28px;
+
+}
+
+.support-title h2{
+
+    font-size:24px;
+
+}
+
+.faq-question{
+
+    font-size:15px;
+
+}
+
+.footer-logo{
+
+    font-size:24px;
+
+}
+
+}

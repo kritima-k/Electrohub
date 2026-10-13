@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ElectroHub | Categories</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Bootstrap Icons -->
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<!-- Categories CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/categories.css') }}">
+
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+
+<div class="container">
+
+<a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+    <i class="bi bi-cpu-fill"></i>
+    ElectroHub
+</a>
+
+<button
+class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+
+<span class="navbar-toggler-icon"></span>
+
+</button>
+
+<div class="collapse navbar-collapse" id="menu">
+
+<ul class="navbar-nav ms-auto">
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('home') }}">Home</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('product') }}">Products</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link active" href="{{ url_for('categories') }}">Categories</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('cart') }}">Cart</a>
+</li>
+
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('contact') }}">Contact</a>
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</nav>
+
+<!-- ================= LAPTOPS ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>💻 Laptops</h2>
+
+<a href="{{ url_for('laptops') }}">
+View All
+<i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- HP -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80" alt="HP Laptop">
+
+<div class="product-info">
+
+<h4>HP</h4>
+
+<p>Victus & Pavilion</p>
+
+<a href="{{ url_for('laptops') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Dell -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80" alt="Dell Laptop">
+
+<div class="product-info">
+
+<h4>Dell</h4>
+
+<p>Inspiron & XPS</p>
+
+<a href="{{ url_for('laptops') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Lenovo -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=900&q=80" alt="Lenovo Laptop">
+
+<div class="product-info">
+
+<h4>Lenovo</h4>
+
+<p>IdeaPad & Legion</p>
+
+<a href="{{ url_for('laptops') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Asus -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a?auto=format&fit=crop&w=900&q=80" alt="Asus Laptop">
+
+<div class="product-info">
+
+<h4>Asus</h4>
+
+<p>ROG & Zenbook</p>
+
+<a href="{{ url_for('laptops') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SMARTPHONES ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>📱 Smartphones</h2>
+
+<a href="{{ url_for('smartphones') }}">
+View All
+<i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=900&q=80" alt="iPhone">
+
+<div class="product-info">
+
+<h4>Apple</h4>
+
+<p>iPhone 16 Series</p>
+
+<a href="{{ url_for('smartphones') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?auto=format&fit=crop&w=900&q=80" alt="Samsung">
+
+<div class="product-info">
+
+<h4>Samsung</h4>
+
+<p>Galaxy S Series</p>
+
+<a href="{{ url_for('smartphones') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80" alt="OnePlus">
+
+<div class="product-info">
+
+<h4>OnePlus</h4>
+
+<p>Flagship Performance</p>
+
+<a href="{{ url_for('smartphones') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1580910051074-3eb694886505?auto=format&fit=crop&w=900&q=80" alt="Xiaomi">
+
+<div class="product-info">
+
+<h4>Xiaomi</h4>
+
+<p>Affordable Innovation</p>
+
+<a href="{{ url_for('smartphones') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= EARBUDS ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>🎧 Earbuds</h2>
+
+<a href="{{ url_for('earbuds') }}">
+    View All
+    <i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- Apple -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=80"
+alt="Apple AirPods">
+
+<div class="product-info">
+
+<h4>Apple</h4>
+
+<p>AirPods Pro</p>
+
+<a href="{{ url_for('earbuds') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Sony -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80"
+alt="Sony Earbuds">
+
+<div class="product-info">
+
+<h4>Sony</h4>
+
+<p>WF-1000XM Series</p>
+
+<a href="{{ url_for('earbuds') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- JBL -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=80"
+alt="JBL Earbuds">
+
+<div class="product-info">
+
+<h4>JBL</h4>
+
+<p>Deep Bass Sound</p>
+
+<a href="{{ url_for('earbuds') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- boAt -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=900&q=80"
+alt="boAt Earbuds">
+
+<div class="product-info">
+
+<h4>boAt</h4>
+
+<p>Airdopes Series</p>
+
+<a href="{{ url_for('earbuds') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= SPEAKERS ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>🔊 Bluetooth Speakers</h2>
+
+<a href="{{ url_for('speakers') }}">
+    View All
+    <i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- JBL -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=900&q=80"
+alt="JBL Speaker">
+
+<div class="product-info">
+
+<h4>JBL</h4>
+
+<p>Portable Bluetooth</p>
+
+<a href="{{ url_for('speakers') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Sony -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80"
+alt="Sony Speaker">
+
+<div class="product-info">
+
+<h4>Sony</h4>
+
+<p>Extra Bass Series</p>
+
+<a href="{{ url_for('speakers') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Bose -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80"
+alt="Bose Speaker">
+
+<div class="product-info">
+
+<h4>Bose</h4>
+
+<p>Crystal Clear Sound</p>
+
+<a href="{{ url_for('speakers') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- boAt -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=900&q=80"
+alt="boAt Speaker">
+
+<div class="product-info">
+
+<h4>boAt</h4>
+
+<p>Stone Series</p>
+
+<a href="{{ url_for('speakers') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= SMART WATCHES ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>⌚ Smart Watches</h2>
+
+<a href="{{ url_for('watches') }}">
+View All
+<i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- Apple -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?auto=format&fit=crop&w=900&q=80"
+alt="Apple Watch">
+
+<div class="product-info">
+
+<h4>Apple</h4>
+
+<p>Apple Watch Ultra</p>
+
+<a href="{{ url_for('watches') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Samsung -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80"
+alt="Samsung Watch">
+
+<div class="product-info">
+
+<h4>Samsung</h4>
+
+<p>Galaxy Watch</p>
+
+<a href="{{ url_for('watches') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Noise -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1579586337278-3befd40fd17a?auto=format&fit=crop&w=900&q=80"
+alt="Noise Watch">
+
+<div class="product-info">
+
+<h4>Noise</h4>
+
+<p>Smart Fitness</p>
+
+<a href="{{ url_for('watches') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- boAt -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1617043786394-f977fa12eddf?auto=format&fit=crop&w=900&q=80"
+alt="boAt Watch">
+
+<div class="product-info">
+
+<h4>boAt</h4>
+
+<p>Affordable Smartwatch</p>
+
+<a href="{{ url_for('watches') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================= TABLETS ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>📲 Tablets</h2>
+
+<a href="{{ url_for('tablets') }}">
+    View All
+    <i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- Apple -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=80"
+alt="Apple iPad">
+
+<div class="product-info">
+
+<h4>Apple</h4>
+
+<p>iPad Pro & Air</p>
+
+<a href="{{ url_for('tablets') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Samsung -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?auto=format&fit=crop&w=900&q=80"
+alt="Samsung Tablet">
+
+<div class="product-info">
+
+<h4>Samsung</h4>
+
+<p>Galaxy Tab Series</p>
+
+<a href="{{ url_for('tablets') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Lenovo -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1561154464-82e9adf32764?auto=format&fit=crop&w=900&q=80"
+alt="Lenovo Tablet">
+
+<div class="product-info">
+
+<h4>Lenovo</h4>
+
+<p>Tab P & Yoga</p>
+
+<a href="{{ url_for('tablets') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Microsoft -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1655803258287-cd9e74fb60cf?w=600&auto=format&fit=crop&q=60"
+alt="Microsoft Surface">
+
+<div class="product-info">
+
+<h4>Microsoft</h4>
+
+<p>Surface Pro</p>
+
+<a href="{{ url_for('tablets') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- ================= GAMING ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>🎮 Gaming</h2>
+
+<a href="{{ url_for('gaming') }}">
+    View All
+    <i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- PlayStation -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?auto=format&fit=crop&w=900&q=80"
+alt="PlayStation">
+
+<div class="product-info">
+
+<h4>PlayStation</h4>
+
+<p>PS5 Console</p>
+
+<a href="{{ url_for('gaming') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Xbox -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1621259182978-fbf93132d53d?auto=format&fit=crop&w=900&q=80"
+alt="Xbox">
+
+<div class="product-info">
+
+<h4>Xbox</h4>
+
+<p>Series X</p>
+
+<a href="{{ url_for('gaming') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- ASUS -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?auto=format&fit=crop&w=900&q=80"
+alt="ASUS ROG">
+
+<div class="product-info">
+
+<h4>ASUS ROG</h4>
+
+<p>Gaming Laptops</p>
+
+<a href="{{ url_for('gaming') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Logitech -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1593118247619-e2d6f056869e?auto=format&fit=crop&w=900&q=80"
+alt="Logitech">
+
+<div class="product-info">
+
+<h4>Logitech</h4>
+
+<p>Gaming Accessories</p>
+
+<a href="{{ url_for('gaming') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= ACCESSORIES ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>⌨ Accessories</h2>
+
+<a href="{{ url_for('accessories') }}">
+    View All
+    <i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- Keyboard -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1615663245857-ac93bb7c39e7?auto=format&fit=crop&w=900&q=80"
+alt="Keyboard">
+
+<div class="product-info">
+
+<h4>Keyboards</h4>
+
+<p>Mechanical & Wireless</p>
+
+<a href="{{ url_for('accessories') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Mouse -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80"
+alt="Mouse">
+
+<div class="product-info">
+
+<h4>Mouse</h4>
+
+<p>Gaming & Office</p>
+
+<a href="{{ url_for('accessories') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Webcam -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80"
+alt="Webcam">
+
+<div class="product-info">
+
+<h4>Webcams</h4>
+
+<p>HD Streaming</p>
+
+<a href="{{ url_for('accessories') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Charger -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1580894908361-967195033215?auto=format&fit=crop&w=900&q=80"
+alt="Charger">
+
+<div class="product-info">
+
+<h4>Chargers</h4>
+
+<p>Fast Charging</p>
+
+<a href="{{ url_for('accessories') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= CAMERAS ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>📷 Cameras</h2>
+
+<a href="{{ url_for('cameras') }}">
+    View All
+    <i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- Canon -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=900&q=80"
+alt="Canon Camera">
+
+<div class="product-info">
+
+<h4>Canon</h4>
+
+<p>EOS DSLR Series</p>
+
+<a href="{{ url_for('cameras') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Sony -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1552233706-c3ff6a3da279?w=600&auto=format&fit=crop&q=60"
+alt="Sony Camera">
+
+<div class="product-info">
+
+<h4>Sony</h4>
+
+<p>Alpha Mirrorless</p>
+
+<a href="{{ url_for('cameras') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Nikon -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1510127034890-ba27508e9f1c?auto=format&fit=crop&w=900&q=80"
+alt="Nikon Camera">
+
+<div class="product-info">
+
+<h4>Nikon</h4>
+
+<p>Z Series Cameras</p>
+
+<a href="{{ url_for('cameras') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Fujifilm -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1512790182412-b19e6d62bc39?auto=format&fit=crop&w=900&q=80"
+alt="Fujifilm Camera">
+
+<div class="product-info">
+
+<h4>Fujifilm</h4>
+
+<p>X Series</p>
+
+<a href="{{ url_for('cameras') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= POWER BANKS ================= -->
+
+<section class="category-section">
+
+<div class="container">
+
+<div class="section-heading">
+
+<h2>🔋 Power Banks</h2>
+
+<a href="{{ url_for('powerbanks') }}">
+    View All
+    <i class="bi bi-arrow-right"></i>
+</a>
+
+</div>
+
+<div class="horizontal-scroll">
+
+<!-- Mi -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=900&q=80"
+alt="Mi Power Bank">
+
+<div class="product-info">
+
+<h4>Mi</h4>
+
+<p>Fast Charging</p>
+
+<a href="{{ url_for('powerbanks') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Ambrane -->
+
+<div class="product-card">
+
+<img src="https://images.unsplash.com/photo-1566554738544-d962991c3fee?w=600&auto=format&fit=crop&q=60"
+alt="Ambrane Power Bank">
+
+<div class="product-info">
+
+<h4>Ambrane</h4>
+
+<p>20,000mAh Series</p>
+
+<a href="{{ url_for('powerbanks') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- boAt -->
+
+<div class="product-card">
+
+<img src="https://media.istockphoto.com/id/2237694273/photo/wireless-portable-charger.jpg?s=612x612&w=0&k=20&c=V73sPG-mqdNuqA5G92TRLBFIu2GZ3sL3vdX0scmUHwE="
+alt="boAt Power Bank">
+
+<div class="product-info">
+
+<h4>boAt</h4>
+
+<p>EnergyShroom</p>
+
+<a href="{{ url_for('powerbanks') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+<!-- Xiaomi -->
+
+<div class="product-card">
+
+<img src="https://plus.unsplash.com/premium_photo-1761494494603-ba8c748100ed?w=600&auto=format&fit=crop&q=60"
+alt="Xiaomi Power Bank">
+
+<div class="product-info">
+
+<h4>Xiaomi</h4>
+
+<p>Compact Power</p>
+
+<a href="{{ url_for('powerbanks') }}" class="explore-btn">
+Explore
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer class="footer">
+
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-4">
+
+<h3>ElectroHub</h3>
+
+<p>
+Your trusted destination for premium electronics,
+gadgets and accessories.
+</p>
+
+</div>
+
+<div class="col-lg-4">
+
+<h5>Quick Links</h5>
+
+<ul class="list-unstyled">
+
+<li><a href="{{ url_for('home') }}">Home</a></li>
+
+<li><a href="{{ url_for('product') }}">Products</a></li>
+
+<li><a href="{{ url_for('categories') }}">Categories</a></li>
+
+<li><a href="{{ url_for('contact') }}">Contact</a></li>
+
+</ul>
+
+</div>
+
+<div class="col-lg-4">
+
+<h5>Follow Us</h5>
+
+<i class="bi bi-facebook fs-3 me-3"></i>
+
+<i class="bi bi-instagram fs-3 me-3"></i>
+
+<i class="bi bi-twitter-x fs-3 me-3"></i>
+
+<i class="bi bi-linkedin fs-3"></i>
+
+</div>
+
+</div>
+
+<hr>
+
+<p class="text-center mb-0">
+© 2026 ElectroHub. All Rights Reserved.
+</p>
+
+</div>
+
+</footer>
+
+<!-- Bootstrap -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

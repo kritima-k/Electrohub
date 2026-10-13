@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElectroHub | Earbuds</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+*{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+:root{ --primary:#00c8ff; --card:#111827; --muted:#94a3b8; --border:rgba(255,255,255,.08); }
+body{
+    background:
+    radial-gradient(circle at top right, rgba(0,200,255,.12), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(37,99,235,.10), transparent 30%),
+    linear-gradient(180deg,#040814,#08111f);
+    color:#e2e8f0; overflow-x:hidden;
+}
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-thumb{ background:#00c8ff; border-radius:20px; }
+::-webkit-scrollbar-track{ background:#09111d; }
+.navbar{ background:rgba(5,8,22,.90)!important; backdrop-filter:blur(15px); border-bottom:1px solid var(--border); padding:14px 0; }
+.navbar-brand{ color:#00c8ff!important; font-size:1.8rem; font-weight:700; }
+.nav-link{ color:#dbeafe!important; margin-left:18px; transition:.3s; position:relative; }
+.nav-link:hover{ color:#00c8ff!important; }
+.nav-link::after{ content:""; position:absolute; left:0; bottom:-5px; width:0; height:2px; background:#00c8ff; transition:.35s; }
+.nav-link:hover::after{ width:100%; }
+.hero{ padding:90px 0 50px; text-align:center; }
+.hero-chip{ display:inline-flex; align-items:center; gap:8px; padding:8px 18px; border-radius:40px; background:rgba(0,200,255,.08); border:1px solid rgba(0,200,255,.20); color:#00c8ff; font-size:0.78rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:18px; }
+.hero h1{ font-size:2.8rem; font-weight:800; margin-bottom:14px; }
+.hero h1 span{ color:#00c8ff; }
+.hero p{ color:var(--muted); font-size:1rem; max-width:580px; margin:auto; line-height:1.8; }
+.filter-bar{ background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:18px; padding:16px 20px; margin-bottom:40px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; }
+.filter-pill{ border:none; border-radius:999px; padding:9px 18px; font-size:0.85rem; font-weight:600; color:#dbeafe; background:rgba(255,255,255,.05); transition:.3s; cursor:pointer; }
+.filter-pill:hover,.filter-pill.active{ background:linear-gradient(135deg,#00c8ff,#2563eb); color:#fff; }
+.sort-select{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); color:#fff; border-radius:12px; padding:9px 14px; font-size:0.88rem; }
+.sort-select:focus{ box-shadow:none; border-color:#00c8ff; background:rgba(255,255,255,.08); color:#fff; }
+.sort-select option{ background:#111827; color:#fff; }
+.product-card{ background:var(--card); border:1px solid var(--border); border-radius:20px; overflow:hidden; transition:.35s; height:100%; }
+.product-card:hover{ transform:translateY(-7px); border-color:#00c8ff; box-shadow:0 20px 45px rgba(0,0,0,.4), 0 0 20px rgba(0,200,255,.12); }
+.product-img-wrap{ position:relative; height:220px; overflow:hidden; background:#0f172a; }
+.product-img-wrap img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.product-card:hover .product-img-wrap img{ transform:scale(1.07); }
+.badge-discount{ position:absolute; top:12px; left:12px; background:linear-gradient(135deg,#ef4444,#f97316); color:#fff; font-size:0.72rem; font-weight:700; padding:5px 12px; border-radius:30px; }
+.wishlist-btn{ position:absolute; top:12px; right:12px; width:38px; height:38px; border:none; border-radius:50%; background:rgba(0,0,0,.55); color:#fff; display:flex; align-items:center; justify-content:center; transition:.3s; cursor:pointer; }
+.wishlist-btn:hover{ background:rgba(239,68,68,.2); color:#ff6b81; }
+.product-body{ padding:18px; }
+.product-brand{ color:#00c8ff; font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+.product-name{ font-size:1rem; font-weight:700; margin-bottom:8px; min-height:44px; }
+.rating{ color:#fbbf24; font-size:0.85rem; margin-bottom:8px; }
+.rating small{ color:var(--muted); margin-left:4px; }
+.price-row{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.new-price{ font-size:1.15rem; font-weight:800; color:#fff; }
+.old-price{ font-size:0.88rem; color:#475569; text-decoration:line-through; }
+.product-desc{ color:var(--muted); font-size:0.87rem; line-height:1.7; margin-bottom:14px; min-height:44px; }
+.card-actions{ display:flex; gap:8px; }
+.btn-view{ flex:1; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03); color:#fff; border-radius:12px; padding:10px; font-size:0.85rem; font-weight:600; transition:.3s; }
+.btn-view:hover{ background:rgba(255,255,255,.08); }
+.btn-cart{ flex:1; border:none; border-radius:12px; padding:10px; font-size:0.85rem; font-weight:700; color:#fff; background:linear-gradient(135deg,#00c8ff,#2563eb); box-shadow:0 8px 20px rgba(0,200,255,.20); transition:.3s; }
+.btn-cart:hover{ transform:translateY(-2px); }
+.site-footer{ background:rgba(0,0,0,.28); border-top:1px solid var(--border); padding:50px 0 30px; margin-top:60px; }
+.footer-brand{ font-size:1.5rem; font-weight:800; color:#00c8ff; }
+.footer-text{ color:var(--muted); line-height:1.8; font-size:0.92rem; margin-top:12px; }
+.footer-heading{ font-size:0.82rem; font-weight:700; color:#e2e8f0; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
+.footer-link{ display:block; color:var(--muted); margin-bottom:10px; font-size:0.9rem; transition:.3s; text-decoration:none; }
+.footer-link:hover{ color:#00c8ff; }
+.footer-bottom{ border-top:1px solid var(--border); margin-top:28px; padding-top:18px; color:#94a3b8; font-size:0.88rem; }
+.reveal{ opacity:0; transform:translateY(26px); transition:.7s ease; }
+.reveal.show{ opacity:1; transform:translateY(0); }
+::selection{ background:#00c8ff; color:#fff; }
+@media(max-width:576px){ .hero h1{ font-size:2rem; } .filter-bar{ flex-direction:column; align-items:flex-start; } }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+       <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+    <i class="bi bi-cpu-fill"></i> ElectroHub
+</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link"href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('product') }}">Products</a></li>
+                <li class="nav-item"><a class="nav-link"href="{{ url_for('categories') }}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active"href="{{ url_for('earbuds') }}">Earbuds</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('cart') }}">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-chip reveal"><i class="bi bi-headphones"></i> Earbuds Collection</div>
+        <h1 class="reveal">Pure Sound, <span>Zero Wires</span></h1>
+        <p class="reveal">Apple, Sony, JBL, boAt and more — find your perfect pair with ANC, deep bass and all-day comfort.</p>
+    </div>
+</section>
+
+<section style="padding-bottom:40px;">
+    <div class="container">
+        <div class="filter-bar reveal">
+            <div class="d-flex flex-wrap gap-2">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="anc">ANC</button>
+                <button class="filter-pill" data-filter="premium">Premium</button>
+                <button class="filter-pill" data-filter="budget">Budget</button>
+                <button class="filter-pill" data-filter="gaming">Gaming</button>
+            </div>
+            <select class="sort-select" id="sortSelect">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+        </div>
+
+        <div class="row g-4" id="earbudGrid">
+
+            <!-- 1 AirPods Pro -->
+            <div class="col-md-6 col-lg-4 col-xl-3 earbud-item reveal" data-filter="anc" data-name="Apple AirPods Pro 2" data-price="24999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-10%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=80" alt="AirPods Pro">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Apple</div>
+                        <h5 class="product-name">Apple AirPods Pro 2</h5>
+                        <div class="rating">★★★★★ <small>(2.1k)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹24,999</div>
+                            <div class="old-price">₹27,900</div>
+                        </div>
+                        <p class="product-desc">H2 chip, Active Noise Cancellation, Adaptive Audio, 30hr total.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="e1" data-name="Apple AirPods Pro 2" data-price="24999" data-image="https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 Sony WF -->
+            <div class="col-md-6 col-lg-4 col-xl-3 earbud-item reveal" data-filter="anc" data-name="Sony WF-1000XM5" data-price="19999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-15%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80" alt="Sony WF">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Sony</div>
+                        <h5 class="product-name">Sony WF-1000XM5</h5>
+                        <div class="rating">★★★★★ <small>(987)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹19,999</div>
+                            <div class="old-price">₹23,990</div>
+                        </div>
+                        <p class="product-desc">Industry-leading ANC, LDAC support, 8hr playback + 24hr case.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="e2" data-name="Sony WF-1000XM5" data-price="19999" data-image="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 JBL -->
+            <div class="col-md-6 col-lg-4 col-xl-3 earbud-item reveal" data-filter="premium" data-name="JBL Tour Pro 2" data-price="14999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-20%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=80" alt="JBL">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">JBL</div>
+                        <h5 class="product-name">JBL Tour Pro 2</h5>
+                        <div class="rating">★★★★★ <small>(654)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹14,999</div>
+                            <div class="old-price">₹18,999</div>
+                        </div>
+                        <p class="product-desc">Smart charging case with display, ANC, 40hr total battery.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="e3" data-name="JBL Tour Pro 2" data-price="14999" data-image="https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 boAt Airdopes -->
+            <div class="col-md-6 col-lg-4 col-xl-3 earbud-item reveal" data-filter="budget" data-name="boAt Airdopes 141" data-price="1299">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-35%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=900&q=80" alt="boAt Airdopes">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">boAt</div>
+                        <h5 class="product-name">boAt Airdopes 141</h5>
+                        <div class="rating">★★★★☆ <small>(3.4k)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹1,299</div>
+                            <div class="old-price">₹1,999</div>
+                        </div>
+                        <p class="product-desc">42hr playback, ENx tech, low latency gaming mode.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="e4" data-name="boAt Airdopes 141" data-price="1299" data-image="https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 Nothing Ear -->
+            <div class="col-md-6 col-lg-4 col-xl-3 earbud-item reveal" data-filter="premium" data-name="Nothing Ear (2)" data-price="8999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-18%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&w=900&q=80" alt="Nothing Ear">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Nothing</div>
+                        <h5 class="product-name">Nothing Ear (2)</h5>
+                        <div class="rating">★★★★★ <small>(1.1k)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹8,999</div>
+                            <div class="old-price">₹10,999</div>
+                        </div>
+                        <p class="product-desc">Transparent design, personalized ANC, Hi-Res Audio certified.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="e5" data-name="Nothing Ear (2)" data-price="8999" data-image="https://images.unsplash.com/photo-1608156639585-b3a032ef9689?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 Realme Buds -->
+            <div class="col-md-6 col-lg-4 col-xl-3 earbud-item reveal" data-filter="budget" data-name="Realme Buds T300" data-price="2499">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-28%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=900&q=80" alt="Realme Buds">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Realme</div>
+                        <h5 class="product-name">Realme Buds T300</h5>
+                        <div class="rating">★★★★☆ <small>(2.2k)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹2,499</div>
+                            <div class="old-price">₹3,499</div>
+                        </div>
+                        <p class="product-desc">30hr total, ANC, 12.4mm driver, IP55 water resistant.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="e6" data-name="Realme Buds T300" data-price="2499" data-image="https://images.unsplash.com/photo-1590658268037-6bf12165a8df?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 Razer Hammerhead -->
+            <div class="col-md-6 col-lg-4 col-xl-3 earbud-item reveal" data-filter="gaming" data-name="Razer Hammerhead Pro" data-price="12999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-12%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=900&q=80" alt="Razer">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Razer</div>
+                        <h5 class="product-name">Razer Hammerhead Pro</h5>
+                        <div class="rating">★★★★★ <small>(432)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹12,999</div>
+                            <div class="old-price">₹14,999</div>
+                        </div>
+                        <p class="product-desc">60ms ultra-low latency, ANC, THX certified audio for gaming.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="e7" data-name="Razer Hammerhead Pro" data-price="12999" data-image="https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 OnePlus Buds -->
+            <div class="col-md-6 col-lg-4 col-xl-3 earbud-item reveal" data-filter="anc" data-name="OnePlus Buds Pro 2" data-price="9999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-22%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=900&q=80" alt="OnePlus Buds">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">OnePlus</div>
+                        <h5 class="product-name">OnePlus Buds Pro 2</h5>
+                        <div class="rating">★★★★★ <small>(876)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹9,999</div>
+                            <div class="old-price">₹12,999</div>
+                        </div>
+                        <p class="product-desc">Dynaudio tuning, dual ANC, 39hr total, MagSafe charging.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="e8" data-name="OnePlus Buds Pro 2" data-price="9999" data-image="https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VIEW MODAL -->
+<div id="viewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.82); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#111827; border:1px solid rgba(0,200,255,.18); border-radius:24px; max-width:680px; width:100%; max-height:90vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,.08); border:none; color:#fff; width:34px; height:34px; border-radius:50%; font-size:1.1rem; cursor:pointer;">✕</button>
+        <img id="modalImg" src="" style="width:100%; height:280px; object-fit:cover; border-radius:24px 24px 0 0;">
+        <div style="padding:26px;">
+            <div id="modalBrand" style="color:#00c8ff; font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;"></div>
+            <h3 id="modalTitle" style="color:#fff; font-size:1.4rem; font-weight:800; margin-bottom:8px;"></h3>
+            <div id="modalRating" style="color:#fbbf24; margin-bottom:10px;"></div>
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+                <div id="modalNewPrice" style="font-size:1.3rem; font-weight:800; color:#fff;"></div>
+                <div id="modalOldPrice" style="font-size:0.95rem; color:#475569; text-decoration:line-through;"></div>
+            </div>
+            <p id="modalDesc" style="color:#94a3b8; line-height:1.8; margin-bottom:22px;"></p>
+            <button onclick="addToCartFromModal()" style="width:100%; background:linear-gradient(135deg,#00c8ff,#2563eb); border:none; color:#fff; border-radius:14px; padding:14px; font-size:1rem; font-weight:700; cursor:pointer;">
+                <i class="bi bi-cart-plus-fill"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="footer-brand">ElectroHub</div>
+                <p class="footer-text">Your destination for premium electronics, gadgets and modern tech.</p>
+            </div>
+          <div class="col-6 col-lg-2">
+    <h6 class="footer-heading">Quick Links</h6>
+    <a href="{{ url_for('home') }}" class="footer-link">Home</a>
+    <a href="{{ url_for('product') }}" class="footer-link">Products</a>
+    <a href="{{ url_for('categories') }}" class="footer-link">Categories</a>
+</div>
+
+<div class="col-6 col-lg-3">
+    <h6 class="footer-heading">Categories</h6>
+    <a href="{{ url_for('laptops') }}" class="footer-link">Laptops</a>
+    <a href="{{ url_for('smartphones') }}" class="footer-link">Smartphones</a>
+    <a href="{{ url_for('earbuds') }}" class="footer-link">Earbuds</a>
+</div>
+
+<div class="col-lg-3">
+    <h6 class="footer-heading">Support</h6>
+    <a href="{{ url_for('contact') }}" class="footer-link">Contact Us</a>
+    <a href="#" class="footer-link">Returns</a>
+    <a href="#" class="footer-link">Help Center</a>
+</div>
+        </div>
+        <div class="footer-bottom text-center">
+            © 2026 ElectroHub. Designed & Developed by <span style="color:#00c8ff; font-weight:600;">Kritima</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+// =====================
+// ADD TO CART
+// =====================
+<script>
+async function addToCart(product){
+
+    const response = await fetch("/add_to_cart",{
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify(product)
+
+    });
+
+    const data = await response.json();
+
+    if(data.status === "login"){
+
+        alert("Please login first!");
+
+        window.location.href = "{{ url_for('login') }}";
+
+        return;
+
+    }
+
+    alert("Product added to Cart!");
+
+}
+
+document.querySelectorAll(".add-to-cart").forEach(btn=>{
+
+    btn.addEventListener("click",function(){
+
+        addToCart({
+
+            id:this.dataset.id,
+            name:this.dataset.name,
+            price:parseInt(this.dataset.price),
+            image:this.dataset.image
+
+        });
+
+    });
+
+});
+
+// =====================
+// FILTER
+// =====================
+
+document.querySelectorAll(".filter-pill").forEach(btn=>{
+
+    btn.addEventListener("click",function(){
+
+        document.querySelectorAll(".filter-pill").forEach(b=>{
+            b.classList.remove("active");
+        });
+
+        this.classList.add("active");
+
+        const filter=this.dataset.filter;
+
+        document.querySelectorAll(".earbud-item").forEach(item=>{
+
+            if(filter==="all" || item.dataset.filter===filter){
+
+                item.style.display="block";
+
+            }else{
+
+                item.style.display="none";
+
+            }
+
+        });
+
+    });
+
+});
+
+
+// =====================
+// SORT
+// =====================
+
+document.getElementById("sortSelect").addEventListener("change",function(){
+
+    const grid=document.getElementById("earbudGrid");
+
+    const cards=Array.from(grid.querySelectorAll(".earbud-item"));
+
+    if(this.value==="low"){
+
+        cards.sort((a,b)=>parseInt(a.dataset.price)-parseInt(b.dataset.price));
+
+    }
+
+    else if(this.value==="high"){
+
+        cards.sort((a,b)=>parseInt(b.dataset.price)-parseInt(a.dataset.price));
+
+    }
+
+    else if(this.value==="name"){
+
+        cards.sort((a,b)=>a.dataset.name.localeCompare(b.dataset.name));
+
+    }
+
+    cards.forEach(card=>grid.appendChild(card));
+
+});
+
+// =====================
+// VIEW MODAL
+// =====================
+
+let currentModalProduct = null;
+
+function openModal(btn){
+
+    const card = btn.closest(".product-card");
+
+    const cartBtn = card.querySelector(".add-to-cart");
+
+    currentModalProduct = {
+        id: cartBtn.dataset.id,
+        name: cartBtn.dataset.name,
+        price: parseInt(cartBtn.dataset.price),
+        image: cartBtn.dataset.image
+    };
+
+    document.getElementById("modalImg").src =
+        card.querySelector("img").src;
+
+    document.getElementById("modalBrand").textContent =
+        card.querySelector(".product-brand").textContent;
+
+    document.getElementById("modalTitle").textContent =
+        card.querySelector(".product-name").textContent;
+
+    document.getElementById("modalRating").innerHTML =
+        card.querySelector(".rating").innerHTML;
+
+    document.getElementById("modalNewPrice").textContent =
+        card.querySelector(".new-price").textContent;
+
+    document.getElementById("modalOldPrice").textContent =
+        card.querySelector(".old-price").textContent;
+
+    document.getElementById("modalDesc").textContent =
+        card.querySelector(".product-desc").textContent;
+
+    document.getElementById("viewModal").style.display = "flex";
+
+}
+
+function closeModal(){
+
+    document.getElementById("viewModal").style.display = "none";
+
+}
+
+function addToCartFromModal(){
+
+    if(currentModalProduct){
+
+        addToCart(currentModalProduct);
+
+    }
+
+}
+
+document.getElementById("viewModal").addEventListener("click",function(e){
+
+    if(e.target===this){
+
+        closeModal();
+
+    }
+
+});
+
+// =====================
+// WISHLIST
+// =====================
+
+document.querySelectorAll(".wishlist-btn").forEach(btn=>{
+
+    btn.addEventListener("click",async function(){
+
+        const card=this.closest(".product-card");
+
+        const cartBtn=card.querySelector(".add-to-cart");
+
+        const item={
+
+            id:cartBtn.dataset.id,
+            name:cartBtn.dataset.name,
+            price:cartBtn.dataset.price,
+            image:cartBtn.dataset.image
+
+        };
+
+        const response=await fetch("/add_to_wishlist",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(item)
+
+        });
+
+        const data=await response.json();
+
+        if(data.status==="login"){
+
+            alert("Please login first!");
+
+            window.location.href="{{ url_for('login') }}";
+
+            return;
+
+        }
+
+        if(data.status==="exists"){
+
+            alert("Already in Wishlist!");
+
+            return;
+
+        }
+
+        this.querySelector("i").classList.replace("bi-heart","bi-heart-fill");
+
+        this.style.color="#ff6b81";
+
+        alert("Added to Wishlist!");
+
+    });
+
+});
+
+
+// =====================
+// REVEAL ANIMATION
+// =====================
+
+const reveals=document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+    reveals.forEach(el=>{
+
+        if(el.getBoundingClientRect().top<window.innerHeight-80){
+
+            el.classList.add("show");
+
+        }
+
+    });
+
+}
+
+revealOnScroll();
+
+window.addEventListener("scroll",revealOnScroll);
+
+</script>
+</body>
+</html>

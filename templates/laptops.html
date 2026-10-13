@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElectroHub | Laptops</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/laptop.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+            <i class="bi bi-cpu-fill"></i> ElectroHub
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('product') }}">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('categories') }}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active" href="{{ url_for('laptops') }}">Laptops</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('cart') }}">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="laptops-hero">
+    <div class="container">
+        <div class="hero-chip reveal">
+            <i class="bi bi-laptop-fill"></i> Laptops Collection
+        </div>
+        <h1 class="reveal">Find Your Perfect <span>Laptop</span></h1>
+        <p class="reveal">Gaming, productivity, ultrabooks — explore top brands like HP, Dell, Lenovo, Asus and Apple all in one place.</p>
+    </div>
+</section>
+
+<!-- PRODUCTS -->
+<section style="padding-bottom:40px;">
+    <div class="container">
+
+        <!-- FILTER BAR -->
+        <div class="filter-bar reveal">
+            <div class="d-flex flex-wrap gap-2">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="gaming">Gaming</button>
+                <button class="filter-pill" data-filter="ultrabook">Ultrabook</button>
+                <button class="filter-pill" data-filter="business">Business</button>
+                <button class="filter-pill" data-filter="budget">Budget</button>
+            </div>
+            <select class="sort-select" id="sortSelect">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+        </div>
+
+        <!-- GRID -->
+        <div class="row g-4" id="laptopGrid">
+
+            <!-- 1 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 laptop-item reveal" data-filter="gaming" data-name="Apex Gaming Laptop" data-price="89999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-18%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=900&q=80" alt="Gaming Laptop">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Gaming</div>
+                        <h5 class="product-name">Apex Gaming Laptop</h5>
+                        <div class="rating">★★★★★ <small>(218)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹89,999</div>
+                            <div class="old-price">₹1,09,999</div>
+                        </div>
+                        <p class="product-desc">RTX 4060, 16GB RAM, 144Hz display — built for serious gaming.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="l1" data-name="Apex Gaming Laptop" data-price="89999"
+                                data-image="https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 laptop-item reveal" data-filter="business" data-name="Dell Inspiron 15" data-price="49999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-15%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80" alt="Dell">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Dell</div>
+                        <h5 class="product-name">Dell Inspiron 15</h5>
+                        <div class="rating">★★★★☆ <small>(156)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹49,999</div>
+                            <div class="old-price">₹56,999</div>
+                        </div>
+                        <p class="product-desc">Intel i5, 16GB RAM, 512GB SSD — perfect for office and college use.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="l2" data-name="Dell Inspiron 15" data-price="49999"
+                                data-image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 laptop-item reveal" data-filter="ultrabook" data-name="MacBook Air M2" data-price="114999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-10%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&w=900&q=80" alt="MacBook">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Apple</div>
+                        <h5 class="product-name">MacBook Air M2</h5>
+                        <div class="rating">★★★★★ <small>(412)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹1,14,999</div>
+                            <div class="old-price">₹1,29,999</div>
+                        </div>
+                        <p class="product-desc">Apple M2 chip, 8GB RAM, 18hr battery — thin, fast and silent.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="l3" data-name="MacBook Air M2" data-price="114999"
+                                data-image="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 laptop-item reveal" data-filter="gaming" data-name="ASUS ROG Strix G15" data-price="94999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-12%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1593642634443-44adaa06623a?auto=format&fit=crop&w=900&q=80" alt="ASUS ROG">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Asus ROG</div>
+                        <h5 class="product-name">ASUS ROG Strix G15</h5>
+                        <div class="rating">★★★★★ <small>(287)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹94,999</div>
+                            <div class="old-price">₹1,07,999</div>
+                        </div>
+                        <p class="product-desc">AMD Ryzen 9, RTX 4070, 165Hz — the ultimate gaming beast.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="l4" data-name="ASUS ROG Strix G15" data-price="94999"
+                                data-image="https://images.unsplash.com/photo-1593642634443-44adaa06623a?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 laptop-item reveal" data-filter="ultrabook" data-name="ZenBook Pro Ultra" data-price="74999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-11%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80" alt="ZenBook">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Asus</div>
+                        <h5 class="product-name">ZenBook Pro Ultra</h5>
+                        <div class="rating">★★★★★ <small>(167)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹74,999</div>
+                            <div class="old-price">₹84,999</div>
+                        </div>
+                        <p class="product-desc">Sleek metal body, OLED display, fast SSD — premium productivity.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="l5" data-name="ZenBook Pro Ultra" data-price="74999"
+                                data-image="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 laptop-item reveal" data-filter="budget" data-name="Lenovo IdeaPad Slim 3" data-price="32999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-20%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=900&q=80" alt="Lenovo">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Lenovo</div>
+                        <h5 class="product-name">Lenovo IdeaPad Slim 3</h5>
+                        <div class="rating">★★★★☆ <small>(321)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹32,999</div>
+                            <div class="old-price">₹41,999</div>
+                        </div>
+                        <p class="product-desc">Intel i3, 8GB RAM, 256GB SSD — best budget laptop for students.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="l6" data-name="Lenovo IdeaPad Slim 3" data-price="32999"
+                                data-image="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 laptop-item reveal" data-filter="business" data-name="HP Pavilion 15" data-price="54999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-13%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80" alt="HP">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">HP</div>
+                        <h5 class="product-name">HP Pavilion 15</h5>
+                        <div class="rating">★★★★☆ <small>(198)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹54,999</div>
+                            <div class="old-price">₹62,999</div>
+                        </div>
+                        <p class="product-desc">Intel i5, Full HD display, long battery — reliable everyday laptop.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="l7" data-name="HP Pavilion 15" data-price="54999"
+                                data-image="https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 laptop-item reveal" data-filter="budget" data-name="Acer Aspire 5" data-price="38999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-16%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=900&q=80" alt="Acer">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Acer</div>
+                        <h5 class="product-name">Acer Aspire 5</h5>
+                        <div class="rating">★★★★☆ <small>(244)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹38,999</div>
+                            <div class="old-price">₹46,999</div>
+                        </div>
+                        <p class="product-desc">AMD Ryzen 5, 8GB RAM, solid build — great value for money.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart"
+                                data-id="l8" data-name="Acer Aspire 5" data-price="38999"
+                                data-image="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=900&q=80">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VIEW MODAL -->
+<div id="viewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.82); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#111827; border:1px solid rgba(0,200,255,.18); border-radius:24px; max-width:680px; width:100%; max-height:90vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,.08); border:none; color:#fff; width:34px; height:34px; border-radius:50%; font-size:1.1rem; cursor:pointer;">✕</button>
+        <img id="modalImg" src="" style="width:100%; height:280px; object-fit:cover; border-radius:24px 24px 0 0;">
+        <div style="padding:26px;">
+            <div id="modalBrand" style="color:#00c8ff; font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;"></div>
+            <h3 id="modalTitle" style="color:#fff; font-size:1.4rem; font-weight:800; margin-bottom:8px;"></h3>
+            <div id="modalRating" style="color:#fbbf24; margin-bottom:10px;"></div>
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+                <div id="modalNewPrice" style="font-size:1.3rem; font-weight:800; color:#fff;"></div>
+                <div id="modalOldPrice" style="font-size:0.95rem; color:#475569; text-decoration:line-through;"></div>
+            </div>
+            <p id="modalDesc" style="color:#94a3b8; line-height:1.8; margin-bottom:22px;"></p>
+            <button onclick="addToCartFromModal()" style="width:100%; background:linear-gradient(135deg,#00c8ff,#2563eb); border:none; color:#fff; border-radius:14px; padding:14px; font-size:1rem; font-weight:700; cursor:pointer;">
+                <i class="bi bi-cart-plus-fill"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="footer-brand">ElectroHub</div>
+                <p class="footer-text">Your destination for premium electronics, gadgets and modern tech.</p>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6 class="footer-heading">Quick Links</h6>
+                <a href="{{ url_for('home') }}" class="footer-link">Home</a>
+                <a href="{{ url_for('product') }}" class="footer-link">Products</a>
+                <a href="{{ url_for('categories') }}" class="footer-link">Categories</a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="footer-heading">Categories</h6>
+                <a href="{{ url_for('laptops') }}" class="footer-link">Laptops</a>
+                <a href="{{ url_for('smartphones') }}" class="footer-link">Smartphones</a>
+                <a href="{{ url_for('gaming') }}" class="footer-link">Gaming</a>
+            </div>
+            <div class="col-lg-3">
+                <h6 class="footer-heading">Support</h6>
+                <a href="{{ url_for('contact') }}" class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">Returns</a>
+                <a href="#" class="footer-link">Help Center</a>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            © 2026 ElectroHub. Designed & Developed by <span style="color:#00c8ff; font-weight:600;">Kritima</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+// ---------------- ADD TO CART ----------------
+
+function addToCart(product){
+
+    fetch("{{ url_for('add_to_cart') }}", {
+
+        method: "POST",
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify(product)
+
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if(data.success){
+
+            alert("Product added to cart!");
+
+        }else{
+
+            alert(data.message);
+
+            if(data.redirect){
+                window.location.href = data.redirect;
+            }
+
+        }
+
+    })
+
+    .catch(error => {
+
+        console.error(error);
+        alert("Something went wrong.");
+
+    });
+
+}
+
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        addToCart({
+
+            id: this.dataset.id,
+            name: this.dataset.name,
+            price: parseInt(this.dataset.price),
+            image: this.dataset.image
+
+        });
+
+    });
+
+});
+
+
+// ---------------- FILTER ----------------
+
+document.querySelectorAll(".filter-pill").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        document.querySelectorAll(".filter-pill").forEach(b =>
+            b.classList.remove("active")
+        );
+
+        this.classList.add("active");
+
+        const filter = this.dataset.filter;
+
+        document.querySelectorAll(".laptop-item").forEach(item => {
+
+            item.style.display =
+                (filter === "all" || item.dataset.filter === filter)
+                ? "block"
+                : "none";
+
+        });
+
+    });
+
+});
+
+
+// ---------------- SORT ----------------
+
+document.getElementById("sortSelect").addEventListener("change", function(){
+
+    const grid = document.getElementById("laptopGrid");
+
+    const cards = Array.from(grid.querySelectorAll(".laptop-item"));
+
+    if(this.value === "low"){
+
+        cards.sort((a,b)=>a.dataset.price-b.dataset.price);
+
+    }
+
+    else if(this.value === "high"){
+
+        cards.sort((a,b)=>b.dataset.price-a.dataset.price);
+
+    }
+
+    else if(this.value === "name"){
+
+        cards.sort((a,b)=>a.dataset.name.localeCompare(b.dataset.name));
+
+    }
+
+    cards.forEach(card=>grid.appendChild(card));
+
+});
+
+
+// ---------------- VIEW MODAL ----------------
+
+let currentModalProduct = null;
+
+function openModal(btn){
+
+    const card = btn.closest(".product-card");
+
+    const cartBtn = card.querySelector(".add-to-cart");
+
+    currentModalProduct = {
+
+        id: cartBtn.dataset.id,
+        name: cartBtn.dataset.name,
+        price: parseInt(cartBtn.dataset.price),
+        image: cartBtn.dataset.image
+
+    };
+
+    document.getElementById("modalImg").src =
+        card.querySelector("img").src;
+
+    document.getElementById("modalBrand").textContent =
+        card.querySelector(".product-brand").textContent;
+
+    document.getElementById("modalTitle").textContent =
+        card.querySelector(".product-name").textContent;
+
+    document.getElementById("modalRating").innerHTML =
+        card.querySelector(".rating").innerHTML;
+
+    document.getElementById("modalNewPrice").textContent =
+        card.querySelector(".new-price").textContent;
+
+    document.getElementById("modalOldPrice").textContent =
+        card.querySelector(".old-price").textContent;
+
+    document.getElementById("modalDesc").textContent =
+        card.querySelector(".product-desc").textContent;
+
+    document.getElementById("viewModal").style.display = "flex";
+
+}
+
+function closeModal(){
+
+    document.getElementById("viewModal").style.display = "none";
+
+}
+
+function addToCartFromModal(){
+
+    if(currentModalProduct){
+
+        addToCart(currentModalProduct);
+
+    }
+
+}
+
+document.getElementById("viewModal").addEventListener("click",function(e){
+
+    if(e.target===this){
+
+        closeModal();
+
+    }
+
+});
+
+
+// ---------------- WISHLIST ----------------
+
+document.querySelectorAll(".wishlist-btn").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        const card = this.closest(".product-card");
+
+        const cartBtn = card.querySelector(".add-to-cart");
+
+        fetch("{{ url_for('add_to_wishlist') }}",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify({
+
+                id: cartBtn.dataset.id,
+                name: cartBtn.dataset.name,
+                price: parseInt(cartBtn.dataset.price),
+                image: cartBtn.dataset.image
+
+            })
+
+        })
+
+        .then(response=>response.json())
+
+        .then(data=>{
+
+            if(data.success){
+
+                this.querySelector("i").classList.replace("bi-heart","bi-heart-fill");
+
+                this.style.color="#ff6b81";
+
+                alert("Added to Wishlist!");
+
+            }else{
+
+                alert(data.message);
+
+            }
+
+        });
+
+    });
+
+});
+
+
+// ---------------- REVEAL ----------------
+
+const reveals=document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+    reveals.forEach(el=>{
+
+        if(el.getBoundingClientRect().top < window.innerHeight-80){
+
+            el.classList.add("show");
+
+        }
+
+    });
+
+}
+
+revealOnScroll();
+
+window.addEventListener("scroll",revealOnScroll);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+ 
+<meta charset="UTF-8">
+ 
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+<title>ElectroHub | Shopping Cart</title>
+ 
+<!-- Bootstrap -->
+ 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+ 
+<!-- Bootstrap Icons -->
+ 
+<link rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+ 
+</head>
+ 
+<body>
+ 
+<!-- ================= NAVBAR ================= -->
+ 
+<nav class="navbar navbar-expand-lg navbar-dark">
+ 
+<div class="container">
+ 
+<a class="navbar-brand fw-bold" href="{{ url_for('home') }}">
+ 
+<i class="bi bi-cpu-fill"></i>
+ 
+ElectroHub </a>
+ 
+<button
+class="navbar-toggler"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#menu">
+ 
+<span class="navbar-toggler-icon"></span>
+ 
+</button>
+ 
+<div class="collapse navbar-collapse" id="menu">
+<ul class="navbar-nav ms-auto">
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('home') }}">Home</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="{{ url_for('product') }}">Products</a>
+</li>
+ 
+<li class="nav-item">
+ 
+<a class="nav-link" href="{{ url_for('categories') }}">
+Categories
+</a>
+ 
+</li>
+ 
+<li class="nav-item">
+<a class="nav-link active" href="{{ url_for('cart') }}">
+Cart
+</a>
+</li>
+</ul>
+</div>
+</div>
+</nav>
+ 
+<!-- ================= HERO ================= -->
+ 
+<section class="cart-header">
+ 
+<div class="container">
+ 
+<h1>
+ 
+<i class="bi bi-cart3"></i>
+ 
+Shopping Cart
+ 
+</h1>
+ 
+<p>
+ 
+Review your selected products before checkout.
+ 
+</p>
+ 
+</div>
+ 
+</section>
+ 
+<!-- ================= CART ================= -->
+<section class="cart-section">
+ 
+<div class="container">
+ 
+<div class="row">
+ 
+<!-- LEFT -->
+ 
+<div class="col-lg-8">
+ 
+<div id="cartContainer">
+ 
+{% if cart_items %}
+ 
+    {% for item in cart_items %}
+ 
+    <div class="cart-card" data-id="{{ item.product_id }}" data-price="{{ item.price }}">
+ 
+        <div class="row align-items-center">
+ 
+            <div class="col-md-3">
+ 
+                <img src="{{ item.image }}" class="product-image" alt="Product">
+ 
+            </div>
+ 
+            <div class="col-md-5">
+ 
+                <h4>{{ item.product_name }}</h4>
+ 
+                <p class="unit-price">₹{{ item.price }}</p>
+ 
+                <p class="item-total">Total: ₹{{ item.price * item.quantity }}</p>
+ 
+            </div>
+ 
+            <div class="col-md-4">
+ 
+                <div class="quantity-box">
+ 
+                    <button class="minus-btn">-</button>
+ 
+                    <span class="quantity-value">{{ item.quantity }}</span>
+ 
+                    <button class="plus-btn">+</button>
+ 
+                </div>
+ 
+                <button class="remove-btn">
+ 
+                    <i class="bi bi-trash-fill"></i>
+ 
+                    Remove
+ 
+                </button>
+ 
+            </div>
+ 
+        </div>
+ 
+    </div>
+ 
+    {% endfor %}
+ 
+{% else %}
+ 
+<div class="empty-cart">
+ 
+    <i class="bi bi-cart-x-fill"></i>
+ 
+    <h2>Your Cart is Empty</h2>
+ 
+    <p>
+        Looks like you haven't added any products yet.
+        Browse ElectroHub and discover amazing gadgets.
+    </p>
+ 
+    <a href="{{ url_for('product') }}" class="shop-btn">
+ 
+        <i class="bi bi-bag-fill"></i>
+ 
+        Shop Now
+ 
+    </a>
+ 
+</div>
+ 
+{% endif %}
+ 
+</div>
+ 
+</div>
+ 
+<!-- RIGHT -->
+ 
+<div class="col-lg-4">
+ 
+<div class="summary-card">
+ 
+<h3>Order Summary</h3>
+ 
+<div class="summary-item">
+ 
+<span>Items</span>
+ 
+<span id="summaryItems">{{ cart_items|length }}</span>
+ 
+</div>
+ 
+<div class="summary-item">
+ 
+<span>Subtotal</span>
+ 
+<span id="summarySubtotal">₹{{ total }}</span>
+ 
+</div>
+ 
+<div class="summary-item">
+ 
+<span>Delivery</span>
+ 
+<span>FREE</span>
+ 
+</div>
+ 
+<hr>
+ 
+<div class="summary-total">
+ 
+<span>Grand Total</span>
+ 
+<span id="summaryTotal">₹{{ total }}</span>
+ 
+</div>
+ 
+<a href="{{ url_for('checkout') }}">
+    <button class="checkout-btn">
+        <i class="bi bi-credit-card-fill"></i>
+        Proceed to Checkout
+    </button>
+</a>
+<button class="clear-btn" id="clearCartBtn">
+ 
+<i class="bi bi-trash3-fill"></i>
+ 
+Clear Cart
+ 
+</button>
+ 
+<a href="{{ url_for('product') }}" class="continue-btn">
+ 
+<i class="bi bi-arrow-left-circle"></i>
+ 
+Continue Shopping
+ 
+</a>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
+</section>
+ 
+<!-- ================= PRODUCT TEMPLATE ================= -->
+ 
+<template id="cartItemTemplate">
+ 
+<div class="cart-card">
+ 
+<div class="row align-items-center">
+ 
+<div class="col-md-3">
+ 
+<img
+class="product-image"
+src=""
+alt="Product">
+ 
+</div>
+ 
+<div class="col-md-5">
+ 
+<h4 class="product-name"></h4>
+ 
+<p class="product-price"></p>
+ 
+<p class="item-total"></p>
+ 
+</div>
+ 
+<div class="col-md-4">
+ 
+<div class="quantity-box">
+ 
+<button class="minus-btn">
+ 
+<i class="bi bi-dash-lg"></i>
+ 
+</button>
+ 
+<span class="quantity-value">
+ 
+1
+ 
+</span>
+ 
+<button class="plus-btn">
+ 
+<i class="bi bi-plus-lg"></i>
+ 
+</button>
+ 
+</div>
+ 
+<button class="remove-btn">
+ 
+<i class="bi bi-trash-fill"></i>
+ 
+Remove
+ 
+</button>
+ 
+</div>
+ 
+</div>
+ 
+</div>
+ 
+</template>
+ 
+<!-- Bootstrap -->
+ 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+<script>
+ 
+// ---------------- HELPERS ----------------
+ 
+function getCard(btn){
+    return btn.closest(".cart-card");
+}
+ 
+function refreshCardTotal(card){
+    const price = parseFloat(card.dataset.price);
+    const qty = parseInt(card.querySelector(".quantity-value").textContent);
+    card.querySelector(".item-total").textContent = "Total: ₹" + (price * qty);
+}
+ 
+function refreshSummary(){
+ 
+    let items = 0;
+    let subtotal = 0;
+ 
+    document.querySelectorAll(".cart-card").forEach(card => {
+        const price = parseFloat(card.dataset.price);
+        const qty = parseInt(card.querySelector(".quantity-value").textContent);
+        items += qty;
+        subtotal += price * qty;
+    });
+ 
+    const summaryItems = document.getElementById("summaryItems");
+    const summarySubtotal = document.getElementById("summarySubtotal");
+    const summaryTotal = document.getElementById("summaryTotal");
+ 
+    if(summaryItems) summaryItems.textContent = items;
+    if(summarySubtotal) summarySubtotal.textContent = "₹" + subtotal;
+    if(summaryTotal) summaryTotal.textContent = "₹" + subtotal;
+}
+ 
+function showEmptyCartIfNeeded(){
+    const container = document.getElementById("cartContainer");
+    if(container.querySelectorAll(".cart-card").length === 0){
+        container.innerHTML = `
+            <div class="empty-cart">
+                <i class="bi bi-cart-x-fill"></i>
+                <h2>Your Cart is Empty</h2>
+                <p>Looks like you haven't added any products yet. Browse ElectroHub and discover amazing gadgets.</p>
+                <a href="{{ url_for('product') }}" class="shop-btn">
+                    <i class="bi bi-bag-fill"></i>
+                    Shop Now
+                </a>
+            </div>
+        `;
+    }
+}
+ 
+// ---------------- QUANTITY / REMOVE (event delegation) ----------------
+ 
+document.getElementById("cartContainer").addEventListener("click", function(e){
+ 
+    const plusBtn = e.target.closest(".plus-btn");
+    const minusBtn = e.target.closest(".minus-btn");
+    const removeBtn = e.target.closest(".remove-btn");
+ 
+    if(plusBtn){
+ 
+        const card = getCard(plusBtn);
+        const productId = card.dataset.id;
+        const qtySpan = card.querySelector(".quantity-value");
+        const newQty = parseInt(qtySpan.textContent) + 1;
+ 
+        fetch("/update_cart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: productId, quantity: newQty })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.status === "success"){
+                qtySpan.textContent = newQty;
+                refreshCardTotal(card);
+                refreshSummary();
+            }
+        })
+        .catch(err => console.log(err));
+    }
+ 
+    if(minusBtn){
+ 
+        const card = getCard(minusBtn);
+        const productId = card.dataset.id;
+        const qtySpan = card.querySelector(".quantity-value");
+        const currentQty = parseInt(qtySpan.textContent);
+ 
+        if(currentQty <= 1){
+            return;
+        }
+ 
+        const newQty = currentQty - 1;
+ 
+        fetch("/update_cart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: productId, quantity: newQty })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.status === "success"){
+                qtySpan.textContent = newQty;
+                refreshCardTotal(card);
+                refreshSummary();
+            }
+        })
+        .catch(err => console.log(err));
+    }
+ 
+    if(removeBtn){
+ 
+        const card = getCard(removeBtn);
+        const productId = card.dataset.id;
+ 
+        fetch("/remove_from_cart", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: productId })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.status === "success"){
+                card.remove();
+                refreshSummary();
+                showEmptyCartIfNeeded();
+            }
+        })
+        .catch(err => console.log(err));
+    }
+ 
+});
+ 
+// ---------------- CLEAR CART ----------------
+ 
+const clearCartBtn = document.getElementById("clearCartBtn");
+ 
+if(clearCartBtn){
+ 
+    clearCartBtn.addEventListener("click", function(){
+ 
+        if(!confirm("Clear your entire cart?")){
+            return;
+        }
+ 
+        fetch("/clear_cart", {
+            method: "POST"
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.status === "success"){
+                document.getElementById("cartContainer").innerHTML = "";
+                refreshSummary();
+                showEmptyCartIfNeeded();
+            }
+        })
+        .catch(err => console.log(err));
+ 
+    });
+ 
+}
+ 
+</script>
+ 
+</body>
+</html>
+ 

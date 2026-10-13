@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ElectroHub | Speakers</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+*{ margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif; }
+:root{ --primary:#00c8ff; --card:#111827; --muted:#94a3b8; --border:rgba(255,255,255,.08); }
+body{
+    background:
+    radial-gradient(circle at top right, rgba(0,200,255,.12), transparent 30%),
+    radial-gradient(circle at bottom left, rgba(37,99,235,.10), transparent 30%),
+    linear-gradient(180deg,#040814,#08111f);
+    color:#e2e8f0; overflow-x:hidden;
+}
+::-webkit-scrollbar{ width:8px; }
+::-webkit-scrollbar-thumb{ background:#00c8ff; border-radius:20px; }
+::-webkit-scrollbar-track{ background:#09111d; }
+.navbar{ background:rgba(5,8,22,.90)!important; backdrop-filter:blur(15px); border-bottom:1px solid var(--border); padding:14px 0; }
+.navbar-brand{ color:#00c8ff!important; font-size:1.8rem; font-weight:700; }
+.nav-link{ color:#dbeafe!important; margin-left:18px; transition:.3s; position:relative; }
+.nav-link:hover{ color:#00c8ff!important; }
+.nav-link::after{ content:""; position:absolute; left:0; bottom:-5px; width:0; height:2px; background:#00c8ff; transition:.35s; }
+.nav-link:hover::after{ width:100%; }
+.hero{ padding:90px 0 50px; text-align:center; }
+.hero-chip{ display:inline-flex; align-items:center; gap:8px; padding:8px 18px; border-radius:40px; background:rgba(0,200,255,.08); border:1px solid rgba(0,200,255,.20); color:#00c8ff; font-size:0.78rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:18px; }
+.hero h1{ font-size:2.8rem; font-weight:800; margin-bottom:14px; }
+.hero h1 span{ color:#00c8ff; }
+.hero p{ color:var(--muted); font-size:1rem; max-width:580px; margin:auto; line-height:1.8; }
+.filter-bar{ background:rgba(255,255,255,.04); border:1px solid var(--border); border-radius:18px; padding:16px 20px; margin-bottom:40px; display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; }
+.filter-pill{ border:none; border-radius:999px; padding:9px 18px; font-size:0.85rem; font-weight:600; color:#dbeafe; background:rgba(255,255,255,.05); transition:.3s; cursor:pointer; }
+.filter-pill:hover,.filter-pill.active{ background:linear-gradient(135deg,#00c8ff,#2563eb); color:#fff; }
+.sort-select{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.10); color:#fff; border-radius:12px; padding:9px 14px; font-size:0.88rem; }
+.sort-select:focus{ box-shadow:none; border-color:#00c8ff; background:rgba(255,255,255,.08); color:#fff; }
+.sort-select option{ background:#111827; color:#fff; }
+.product-card{ background:var(--card); border:1px solid var(--border); border-radius:20px; overflow:hidden; transition:.35s; height:100%; }
+.product-card:hover{ transform:translateY(-7px); border-color:#00c8ff; box-shadow:0 20px 45px rgba(0,0,0,.4), 0 0 20px rgba(0,200,255,.12); }
+.product-img-wrap{ position:relative; height:220px; overflow:hidden; background:#0f172a; }
+.product-img-wrap img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.product-card:hover .product-img-wrap img{ transform:scale(1.07); }
+.badge-discount{ position:absolute; top:12px; left:12px; background:linear-gradient(135deg,#ef4444,#f97316); color:#fff; font-size:0.72rem; font-weight:700; padding:5px 12px; border-radius:30px; }
+.wishlist-btn{ position:absolute; top:12px; right:12px; width:38px; height:38px; border:none; border-radius:50%; background:rgba(0,0,0,.55); color:#fff; display:flex; align-items:center; justify-content:center; transition:.3s; cursor:pointer; }
+.wishlist-btn:hover{ background:rgba(239,68,68,.2); color:#ff6b81; }
+.product-body{ padding:18px; }
+.product-brand{ color:#00c8ff; font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px; }
+.product-name{ font-size:1rem; font-weight:700; margin-bottom:8px; min-height:44px; }
+.rating{ color:#fbbf24; font-size:0.85rem; margin-bottom:8px; }
+.rating small{ color:var(--muted); margin-left:4px; }
+.price-row{ display:flex; align-items:center; gap:10px; margin-bottom:12px; }
+.new-price{ font-size:1.15rem; font-weight:800; color:#fff; }
+.old-price{ font-size:0.88rem; color:#475569; text-decoration:line-through; }
+.product-desc{ color:var(--muted); font-size:0.87rem; line-height:1.7; margin-bottom:14px; min-height:44px; }
+.card-actions{ display:flex; gap:8px; }
+.btn-view{ flex:1; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.03); color:#fff; border-radius:12px; padding:10px; font-size:0.85rem; font-weight:600; transition:.3s; }
+.btn-view:hover{ background:rgba(255,255,255,.08); }
+.btn-cart{ flex:1; border:none; border-radius:12px; padding:10px; font-size:0.85rem; font-weight:700; color:#fff; background:linear-gradient(135deg,#00c8ff,#2563eb); box-shadow:0 8px 20px rgba(0,200,255,.20); transition:.3s; }
+.btn-cart:hover{ transform:translateY(-2px); }
+.site-footer{ background:rgba(0,0,0,.28); border-top:1px solid var(--border); padding:50px 0 30px; margin-top:60px; }
+.footer-brand{ font-size:1.5rem; font-weight:800; color:#00c8ff; }
+.footer-text{ color:var(--muted); line-height:1.8; font-size:0.92rem; margin-top:12px; }
+.footer-heading{ font-size:0.82rem; font-weight:700; color:#e2e8f0; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px; }
+.footer-link{ display:block; color:var(--muted); margin-bottom:10px; font-size:0.9rem; transition:.3s; text-decoration:none; }
+.footer-link:hover{ color:#00c8ff; }
+.footer-bottom{ border-top:1px solid var(--border); margin-top:28px; padding-top:18px; color:#94a3b8; font-size:0.88rem; }
+.reveal{ opacity:0; transform:translateY(26px); transition:.7s ease; }
+.reveal.show{ opacity:1; transform:translateY(0); }
+::selection{ background:#00c8ff; color:#fff; }
+@media(max-width:576px){ .hero h1{ font-size:2rem; } .filter-bar{ flex-direction:column; align-items:flex-start; } }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+       <a class="navbar-brand fw-bold" href="{{ url_for('home') }}"><i class="bi bi-cpu-fill"></i> ElectroHub</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="menu">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('home') }}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('product') }}">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('categories') }}">Categories</a></li>
+                <li class="nav-item"><a class="nav-link active"href="{{ url_for('speakers') }}">Speakers</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ url_for('cart') }}">Cart</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-chip reveal"><i class="bi bi-speaker-fill"></i> Speakers Collection</div>
+        <h1 class="reveal">Feel the <span>Beat Drop</span></h1>
+        <p class="reveal">JBL, Sony, Bose, boAt and more — portable, party and home speakers with powerful sound.</p>
+    </div>
+</section>
+
+<section style="padding-bottom:40px;">
+    <div class="container">
+
+        <div class="filter-bar reveal">
+            <div class="d-flex flex-wrap gap-2">
+                <button class="filter-pill active" data-filter="all">All</button>
+                <button class="filter-pill" data-filter="portable">Portable</button>
+                <button class="filter-pill" data-filter="party">Party</button>
+                <button class="filter-pill" data-filter="home">Home</button>
+                <button class="filter-pill" data-filter="budget">Budget</button>
+            </div>
+            <select class="sort-select" id="sortSelect">
+                <option value="default">Sort By</option>
+                <option value="low">Price: Low to High</option>
+                <option value="high">Price: High to Low</option>
+                <option value="name">Name: A to Z</option>
+            </select>
+        </div>
+
+        <div class="row g-4" id="speakerGrid">
+
+            <!-- 1 JBL Flip 6 -->
+            <div class="col-md-6 col-lg-4 col-xl-3 speaker-item reveal" data-filter="portable" data-name="JBL Flip 6" data-price="11999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-15%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=900&q=80" alt="JBL Flip 6">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">JBL</div>
+                        <h5 class="product-name">JBL Flip 6</h5>
+                        <div class="rating">★★★★★ <small>(2.3k)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹11,999</div>
+                            <div class="old-price">₹13,999</div>
+                        </div>
+                        <p class="product-desc">IP67 waterproof, 12hr battery, bold JBL Pro Sound.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="sp1" data-name="JBL Flip 6" data-price="11999" data-image="https://images.unsplash.com/photo-1545454675-3531b543be5d?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2 Sony XB -->
+            <div class="col-md-6 col-lg-4 col-xl-3 speaker-item reveal" data-filter="portable" data-name="Sony SRS-XB43" data-price="14999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-18%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80" alt="Sony XB">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Sony</div>
+                        <h5 class="product-name">Sony SRS-XB43</h5>
+                        <div class="rating">★★★★★ <small>(1.1k)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹14,999</div>
+                            <div class="old-price">₹18,490</div>
+                        </div>
+                        <p class="product-desc">Extra Bass, Live Sound mode, 24hr battery, party connect.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="sp2" data-name="Sony SRS-XB43" data-price="14999" data-image="https://images.unsplash.com/photo-1589003077984-894e133dabab?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3 Bose -->
+            <div class="col-md-6 col-lg-4 col-xl-3 speaker-item reveal" data-filter="home" data-name="Bose SoundLink Max" data-price="34999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-10%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80" alt="Bose">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Bose</div>
+                        <h5 class="product-name">Bose SoundLink Max</h5>
+                        <div class="rating">★★★★★ <small>(654)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹34,999</div>
+                            <div class="old-price">₹38,900</div>
+                        </div>
+                        <p class="product-desc">Room-filling sound, IP67, 20hr battery, premium build.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="sp3" data-name="Bose SoundLink Max" data-price="34999" data-image="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 boAt Stone -->
+            <div class="col-md-6 col-lg-4 col-xl-3 speaker-item reveal" data-filter="budget" data-name="boAt Stone 1200" data-price="2499">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-30%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=900&q=80" alt="boAt Stone">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">boAt</div>
+                        <h5 class="product-name">boAt Stone 1200</h5>
+                        <div class="rating">★★★★☆ <small>(3.8k)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹2,499</div>
+                            <div class="old-price">₹3,499</div>
+                        </div>
+                        <p class="product-desc">14W stereo, IPX7, TWS pairing, 12hr playback.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="sp4" data-name="boAt Stone 1200" data-price="2499" data-image="https://images.unsplash.com/photo-1572569511254-d8f925fe2cbb?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5 JBL Xtreme -->
+            <div class="col-md-6 col-lg-4 col-xl-3 speaker-item reveal" data-filter="party" data-name="JBL Xtreme 3" data-price="19999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-20%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1700563133041-3d6e64235082?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGpibCUyMHNwZWFrZXJzfGVufDB8fDB8fHww" alt="JBL Xtreme">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">JBL</div>
+                        <h5 class="product-name">JBL Xtreme 3</h5>
+                        <div class="rating">★★★★★ <small>(876)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹19,999</div>
+                            <div class="old-price">₹24,999</div>
+                        </div>
+                        <p class="product-desc">100W powerful sound, IP67, 15hr battery, PartyBoost.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="sp5" data-name="JBL Xtreme 3" data-price="19999" data-image="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6 Marshall -->
+            <div class="col-md-6 col-lg-4 col-xl-3 speaker-item reveal" data-filter="home" data-name="Marshall Stanmore III" data-price="39999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-8%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1531104985437-603d6490e6d4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c3BlYWtlcnMlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D" alt="Marshall">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Marshall</div>
+                        <h5 class="product-name">Marshall Stanmore III</h5>
+                        <div class="rating">★★★★★ <small>(432)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹39,999</div>
+                            <div class="old-price">₹43,999</div>
+                        </div>
+                        <p class="product-desc">Classic rock aesthetic, Bluetooth 5.2, rich stereo sound.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="sp6" data-name="Marshall Stanmore III" data-price="39999" data-image="https://images.unsplash.com/photo-1631972234521-24e9d4fbb841?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHNwZWFrZXJzJTIwaW1hZ2V8ZW58MHx8MHx8fDA%3D">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7 Mivi -->
+            <div class="col-md-6 col-lg-4 col-xl-3 speaker-item reveal" data-filter="budget" data-name="Mivi Roam 2" data-price="999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-40%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c3BlYWtlcnMlMjBpbWFnZXxlbnwwfHwwfHx8MA%3D%3D" alt="Mivi">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Mivi</div>
+                        <h5 class="product-name">Mivi Roam 2</h5>
+                        <div class="rating">★★★★☆ <small>(5.2k)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹999</div>
+                            <div class="old-price">₹1,699</div>
+                        </div>
+                        <p class="product-desc">Made in India, 24hr battery, waterproof, compact design.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="sp7" data-name="Mivi Roam 2" data-price="999" data-image="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8 Sony Party -->
+            <div class="col-md-6 col-lg-4 col-xl-3 speaker-item reveal" data-filter="party" data-name="Sony SRS-XV900" data-price="49999">
+                <div class="product-card">
+                    <div class="product-img-wrap">
+                        <span class="badge-discount">-12%</span>
+                        <button class="wishlist-btn"><i class="bi bi-heart"></i></button>
+                        <img src="https://images.unsplash.com/photo-1616356607338-fd87169ecf1a?auto=format&fit=crop&w=900&q=80" alt="Sony Party">
+                    </div>
+                    <div class="product-body">
+                        <div class="product-brand">Sony</div>
+                        <h5 class="product-name">Sony SRS-XV900</h5>
+                        <div class="rating">★★★★★ <small>(321)</small></div>
+                        <div class="price-row">
+                            <div class="new-price">₹49,999</div>
+                            <div class="old-price">₹56,990</div>
+                        </div>
+                        <p class="product-desc">360° sound, light show, karaoke input, 25hr battery.</p>
+                        <div class="card-actions">
+                            <button class="btn-view" onclick="openModal(this)">View</button>
+                            <button class="btn-cart add-to-cart" data-id="sp8" data-name="Sony SRS-XV900" data-price="49999" data-image="https://images.unsplash.com/photo-1616356607338-fd87169ecf1a?auto=format&fit=crop&w=900&q=80">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- VIEW MODAL -->
+<div id="viewModal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,.82); z-index:9999; align-items:center; justify-content:center; padding:20px;">
+    <div style="background:#111827; border:1px solid rgba(0,200,255,.18); border-radius:24px; max-width:680px; width:100%; max-height:90vh; overflow-y:auto; position:relative;">
+        <button onclick="closeModal()" style="position:absolute; top:14px; right:14px; background:rgba(255,255,255,.08); border:none; color:#fff; width:34px; height:34px; border-radius:50%; font-size:1.1rem; cursor:pointer;">✕</button>
+        <img id="modalImg" src="" style="width:100%; height:280px; object-fit:cover; border-radius:24px 24px 0 0;">
+        <div style="padding:26px;">
+            <div id="modalBrand" style="color:#00c8ff; font-size:0.75rem; font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-bottom:6px;"></div>
+            <h3 id="modalTitle" style="color:#fff; font-size:1.4rem; font-weight:800; margin-bottom:8px;"></h3>
+            <div id="modalRating" style="color:#fbbf24; margin-bottom:10px;"></div>
+            <div style="display:flex; gap:12px; align-items:center; margin-bottom:12px;">
+                <div id="modalNewPrice" style="font-size:1.3rem; font-weight:800; color:#fff;"></div>
+                <div id="modalOldPrice" style="font-size:0.95rem; color:#475569; text-decoration:line-through;"></div>
+            </div>
+            <p id="modalDesc" style="color:#94a3b8; line-height:1.8; margin-bottom:22px;"></p>
+            <button onclick="addToCartFromModal()" style="width:100%; background:linear-gradient(135deg,#00c8ff,#2563eb); border:none; color:#fff; border-radius:14px; padding:14px; font-size:1rem; font-weight:700; cursor:pointer;">
+                <i class="bi bi-cart-plus-fill"></i> Add to Cart
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="footer-brand">ElectroHub</div>
+                <p class="footer-text">Your destination for premium electronics, gadgets and modern tech.</p>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6 class="footer-heading">Quick Links</h6>
+                <a href="{{ url_for('home') }}" class="footer-link">Home</a>
+                <a href="{{ url_for('product') }}" class="footer-link">Products</a>
+                <a href="{{ url_for('categories') }}" class="footer-link">Categories</a>
+            </div>
+            <div class="col-6 col-lg-3">
+                <h6 class="footer-heading">Categories</h6>
+                <a href="{{ url_for('laptops') }}" class="footer-link">Laptops</a>
+                <a href="{{ url_for('earbuds') }}" class="footer-link">Earbuds</a>
+                <a href="{{ url_for('speakers') }}" class="footer-link">Speakers</a>
+            </div>
+            <div class="col-lg-3">
+                <h6 class="footer-heading">Support</h6>
+                <a href="{{ url_for('contact') }}" class="footer-link">Contact Us</a>
+                <a href="#" class="footer-link">Returns</a>
+                <a href="#" class="footer-link">Help Center</a>
+            </div>
+        </div>
+        <div class="footer-bottom text-center">
+            © 2026 ElectroHub. Designed & Developed by <span style="color:#00c8ff; font-weight:600;">Kritima</span>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+
+async function addToCart(product){
+
+    const response = await fetch("/add_to_cart",{
+        method:"POST",
+        headers:{
+            "Content-Type":"application/json"
+        },
+        body:JSON.stringify(product)
+    });
+
+    const result = await response.json();
+
+    if(result.status==="login"){
+        alert("Please login first!");
+        window.location.href="{{ url_for('login') }}";
+        return;
+    }
+
+    if(result.status==="success"){
+        alert(product.name + " added to Cart!");
+    }
+
+}
+
+document.querySelectorAll(".add-to-cart").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        addToCart({
+
+            id:this.dataset.id,
+            name:this.dataset.name,
+            price:parseInt(this.dataset.price),
+            image:this.dataset.image
+
+        });
+
+    });
+
+});
+
+
+document.querySelectorAll(".filter-pill").forEach(btn => {
+
+    btn.addEventListener("click", function(){
+
+        document.querySelectorAll(".filter-pill").forEach(b=>b.classList.remove("active"));
+
+        this.classList.add("active");
+
+        const f=this.dataset.filter;
+
+        document.querySelectorAll(".speaker-item").forEach(item=>{
+
+            item.style.display=(f==="all" || item.dataset.filter===f) ? "block":"none";
+
+        });
+
+    });
+
+});
+
+
+document.getElementById("sortSelect").addEventListener("change",function(){
+
+    const grid=document.getElementById("speakerGrid");
+
+    const cards=Array.from(grid.querySelectorAll(".speaker-item"));
+
+    if(this.value==="low")
+        cards.sort((a,b)=>a.dataset.price-b.dataset.price);
+
+    else if(this.value==="high")
+        cards.sort((a,b)=>b.dataset.price-a.dataset.price);
+
+    else if(this.value==="name")
+        cards.sort((a,b)=>a.dataset.name.localeCompare(b.dataset.name));
+
+    cards.forEach(card=>grid.appendChild(card));
+
+});
+
+
+let currentModalProduct=null;
+
+function openModal(btn){
+
+    const card=btn.closest(".product-card");
+
+    const cartBtn=card.querySelector(".add-to-cart");
+
+    currentModalProduct={
+
+        id:cartBtn.dataset.id,
+        name:cartBtn.dataset.name,
+        price:parseInt(cartBtn.dataset.price),
+        image:cartBtn.dataset.image
+
+    };
+
+    document.getElementById("modalImg").src=card.querySelector("img").src;
+
+    document.getElementById("modalBrand").textContent=card.querySelector(".product-brand").textContent;
+
+    document.getElementById("modalTitle").textContent=card.querySelector(".product-name").textContent;
+
+    document.getElementById("modalRating").innerHTML=card.querySelector(".rating").innerHTML;
+
+    document.getElementById("modalNewPrice").textContent=card.querySelector(".new-price").textContent;
+
+    document.getElementById("modalOldPrice").textContent=card.querySelector(".old-price").textContent;
+
+    document.getElementById("modalDesc").textContent=card.querySelector(".product-desc").textContent;
+
+    document.getElementById("viewModal").style.display="flex";
+
+}
+
+function closeModal(){
+
+    document.getElementById("viewModal").style.display="none";
+
+}
+
+function addToCartFromModal(){
+
+    if(currentModalProduct){
+
+        addToCart(currentModalProduct);
+
+    }
+
+}
+
+document.getElementById("viewModal").addEventListener("click",function(e){
+
+    if(e.target===this){
+
+        closeModal();
+
+    }
+
+});
+
+
+document.querySelectorAll(".wishlist-btn").forEach(btn=>{
+
+    btn.addEventListener("click",async function(){
+
+        const card=this.closest(".product-card");
+
+        const cartBtn=card.querySelector(".add-to-cart");
+
+        const product={
+
+            id:cartBtn.dataset.id,
+            name:cartBtn.dataset.name,
+            price:parseInt(cartBtn.dataset.price),
+            image:cartBtn.dataset.image
+
+        };
+
+        const response=await fetch("/add_to_wishlist",{
+
+            method:"POST",
+
+            headers:{
+                "Content-Type":"application/json"
+            },
+
+            body:JSON.stringify(product)
+
+        });
+
+        const result=await response.json();
+
+        if(result.status==="login"){
+
+            alert("Please login first!");
+
+            window.location.href="{{ url_for('login') }}";
+
+            return;
+
+        }
+
+        if(result.status==="success"){
+
+            this.querySelector("i").classList.replace("bi-heart","bi-heart-fill");
+
+            this.style.color="#ff6b81";
+
+            alert(product.name+" added to Wishlist!");
+
+        }
+
+    });
+
+});
+
+
+const reveals=document.querySelectorAll(".reveal");
+
+function revealOnScroll(){
+
+    reveals.forEach(el=>{
+
+        if(el.getBoundingClientRect().top < window.innerHeight-80){
+
+            el.classList.add("show");
+
+        }
+
+    });
+
+}
+
+revealOnScroll();
+
+window.addEventListener("scroll",revealOnScroll);
+
+</script>
+</body>
+</html>

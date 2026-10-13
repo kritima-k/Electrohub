@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(180deg,#050816,#0b1120);
+    color:#fff;
+}
+
+.background-overlay{
+    display:none;
+}
+
+.login-card{
+    background:#10162d;
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 15px 40px rgba(0,0,0,.35);
+}
+
+.left-panel{
+    background:#0d1328;
+    padding:50px 35px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    border-right:1px solid rgba(255,255,255,.08);
+}
+
+.left-panel h2{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:18px;
+    color:#38bdf8;
+}
+
+.left-panel p{
+    color:#b6c2d9;
+    line-height:1.8;
+    font-size:15px;
+}
+
+.col-md-7{
+    padding:40px;
+}
+
+.col-md-7 h3{
+    color:#fff;
+    font-weight:700;
+    margin-bottom:25px;
+}
+
+.form-label{
+    color:#dbeafe;
+    font-size:14px;
+    margin-bottom:6px;
+}
+
+.input-group-text{
+    background:#1a223d;
+    border:1px solid #2b3658;
+    color:#8ecdf7;
+}
+
+.form-control{
+    background:#1a223d;
+    border:1px solid #2b3658;
+    color:#fff;
+    height:48px;
+}
+
+.form-control::placeholder{
+    color:#7d8ca8;
+}
+
+.form-control:focus{
+    background:#1a223d;
+    color:#fff;
+    border-color:#38bdf8;
+    box-shadow:none;
+}
+
+.btn-outline-secondary{
+    background:#1a223d;
+    border:1px solid #2b3658;
+    color:#fff;
+}
+
+.btn-outline-secondary:hover{
+    background:#243252;
+    color:#fff;
+}
+
+.form-check-label{
+    color:#cbd5e1;
+}
+
+.forgot-link{
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+.forgot-link:hover{
+    color:#fff;
+}
+
+.login-btn{
+    background:#0ea5e9;
+    border:none;
+    color:#fff;
+    font-weight:600;
+    height:48px;
+    border-radius:8px;
+    transition:.3s;
+}
+
+.login-btn:hover{
+    background:#0284c7;
+}
+
+.text-center p{
+    color:#cbd5e1;
+}
+
+.text-center a{
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+.text-center a:hover{
+    color:#fff;
+}
+
+@media(max-width:768px){
+
+.left-panel{
+    display:none;
+}
+
+.col-md-7{
+    padding:30px;
+}
+
+.login-card{
+    width:100%;
+}
+
+}
